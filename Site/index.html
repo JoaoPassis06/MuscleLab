@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo/style.css" />
+    <link rel="shortcut icon" href="imagem/logo.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="estilo/media.css" />
+  </head>
+  <body>
+    <div id="conteiner">
+      <div class="banner">
+        <header>
+          <div id="parte-1">
+            <img src="imagem/logo.png" alt="" class="logo" />
+            <h1>MuscleLab</h1>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#">História</a></li>
+              <li><a href="#">História</a></li>
+              <li><a href="#">Curiosidades</a></li>
+              <li class="a-ultimo"><a href="#">Contato</a></li>
+            </ul>
+          </nav>
+
+          <div id="botoes_login">
+            <button class="login">LOGIN</button>
+            <button class="cadastro">CADASTRO</button>
+          </div>
+
+          <div id="aparecer">
+            <div id="ligar">
+              <button onclick="menu()">
+                <img
+                  style="width: 50px; height: 50px"
+                  src="imagem/menu.png"
+                  alt="Menu"
+                />
+              </button>
+            </div>
+
+            <nav id="lista_menu">
+              <ul>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">CADASTRO</a></li>
+                <li><a href="">HOME</a></li>
+                <li><a href="">CURIOSIDADES</a></li>
+                <li><a href="">CONTATO</a></li>
+                <li><a href="">Contato</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <div class="banner-1">
+          <div>
+            <h2>SEU GUIA DEFINITIVO DE <br />MUSCULAÇÃO</h2>
+            <p>Trasnforme seu corpo. Amplie seu conhecimento</p>
+            <button class="treino">Explore seu treino</button>
+          </div>
+        </div>
+      </div>
+      <div id="curiosidade">
+       
+            <div class="caixas">
+                <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
+
+                <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
+
+                Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia) <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
+            </div>
+            <div class="caixas">
+                <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
+
+                <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
+
+                Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia) <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
+            </div>
+            <div class="caixas">
+                <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
+
+                <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
+
+                Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia) <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
+            </div>
+        
+      </div>
+      
+    </div>
+  </body>
+</html>
+<script>
+  var contMenu = 0;
+  function menu() {
+    if (contMenu == 1) {
+      lista_menu.style.display = "flex";
+      contMenu = 0;
+    } else {
+      lista_menu.style.display = "none";
+      contMenu = 1;
+    }
+  }
+
+</script>
