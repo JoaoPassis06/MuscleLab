@@ -1,0 +1,318 @@
+/* VARIÁVEIS DE COR E FONTES */
+:root {
+    --primaria-color: #f9a929; 
+    --secundaria-color: #ff8c00;
+    --bg-escuro: #1a1a1a;
+    --bg-input: #3c3c3c;
+    --text-claro: #ffffff;
+    --error-color: #e55353;
+}
+
+
+/* ---------------------------------
+   ANIMAÇÕES E BACKGROUND
+   --------------------------------- */
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes sombras {
+    0% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(249, 169, 41, 0.4); }
+    100% { box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0d0d0d, #333333); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* ---------------------------------
+   LAYOUT DE ETAPA ÚNICA
+   --------------------------------- */
+.container-completo {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background: var(--bg-escuro);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: aparecer 1s ease-out 0.2s forwards;
+}
+
+/* Sidebar com Imagem */
+.container-img {
+    background-image: url(../imagem/fundo_cadastro2.png);
+    background-position: center center;
+    background-size: cover;
+    flex: 1;
+    background-color: #0d0d0d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid var(--primaria-color);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    animation: sombras 8s infinite alternate;
+}
+
+/* ---------------------------------
+   FORMULÁRIO E INPUTS
+   --------------------------------- */
+.container-forms {
+    flex: 1.5;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.titulo-etapa {
+    font-family: 'Oswald', sans-serif;
+    color: var(--primaria-color);
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-top: 30px;
+    border-bottom: 2px solid var(--bg-input);
+    padding-bottom: 10px;
+}
+
+.div-forms-cad {
+    flex-grow: 1;
+}
+
+.linha-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.linha-input label {
+    flex-grow: 1;
+}
+
+label span {
+    color: var(--text-claro);
+    font-family: 'Inter', sans-serif;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 12px;
+    color: var(--text-claro);
+    background-color: var(--bg-input);
+    border: 1px solid var(--bg-input);
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Foco */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primaria-color);
+    box-shadow: 0 0 8px rgba(249, 169, 41, 0.7);
+    background-color: #2a2a2a;
+}
+input:focus::placeholder {
+    color: transparent;
+}
+
+/* Barras de Senha */
+.barra-senha {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.barra-forca-senha {
+    display: flex;
+    gap: 2px;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #3c3c3c;
+}
+.barra {
+    width: 33.33%;
+    background-color: transparent;
+    transition: background-color 0.4s;
+}
+#span_forca_senha {
+    font-size: 0.8em;
+    font-weight: 400;
+    margin-bottom: 2px;
+    color: var(--text-claro);
+}
+
+/* ---------------------------------
+   BOTÕES E LINKS
+   --------------------------------- */
+.container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-cadastrar {
+    font-family: 'Oswald', sans-serif;
+    color: var(--bg-escuro);
+    background-color: var(--primaria-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    letter-spacing: 1px;
+}
+
+.btn-cadastrar:hover {
+    background-color: var(--secundaria-color);
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(249, 169, 41, 0.6);
+}
+
+.link-login {
+    color: var(--text-claro);
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.link-login a {
+    color: var(--primaria-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.link-login a:hover {
+    color: var(--primaria-color);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/* ---------------------------------
+   ESTILO DO MODAL DE ERRO
+   --------------------------------- */
+.modal-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+    overflow-y: auto; 
+    padding: 20px;
+    box-sizing: border-box; 
+}
+
+.modal-fundo.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-conteiner {
+    background-color: var(--bg-escuro);
+    color: var(--text-claro);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 25px var(--error-color);
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-out;
+    border: 1px solid var(--error-color);
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-fundo.show .modal-conteiner {
+    transform: scale(1);
+}
+
+.modal-titulo {
+    font-family: 'Oswald', sans-serif;
+    color: var(--error-color);
+    margin: 0;
+    font-size: 1.5em;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-titulo::before {
+    content: '🚨'; 
+    font-size: 1.2em;
+}
+
+
+.modal-corpo {
+    text-align: left;
+    line-height: 1.6;
+    font-size: 0.95em;
+    padding: 10px;
+    background-color: #331f1f;
+    border-radius: 5px;
+    
+    list-style: disc inside;
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.modal-corpo ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+.modal-corpo li {
+    margin-bottom: 8px;
+}
+.modal-corpo li:last-child {
+    margin-bottom: 0;
+}
+
+
+.modal-fecha-btn {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Oswald', sans-serif; 
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    margin-top: 10px; 
+}
+
+.modal-fecha-btn:hover {
+    background-color: var(--secundaria-color);
+    transform: translateY(-2px);
+}

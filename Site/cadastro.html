@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleLab - Cadastro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="estilo/cadastro.css">
+</head>
+<body>
+    <div id="cadastro_completo" class="container-completo">
+        <div class="container-img">
+            
+        </div>
+
+        <form id="cadastroForm" class="container-forms">
+            <div class="topo-cad">
+                <h1 class="titulo-etapa">Crie sua conta MuscleLab</h1>
+            </div>
+            
+            <div class="div-forms-cad">
+                
+                <div class="linha-input">
+                    <label>
+                        <span>Nome:</span>
+                        <input type="text" id="ipt_nome" placeholder=" Ex: Lucas">
+                        
+                    </label>
+                    <label >
+                        <span>Sobrenome:</span>
+                        <input type="text" id="ipt_sobrenome" placeholder="Ex: Silva">
+                    </label>
+                </div>
+                
+                <div class="linha-input">
+                    <label >
+                        <span>Nível:</span>
+                        <select id="ipt_nivel_muscle">
+                            <option value="">Selecione seu nível</option>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                            <option value="Nenhum">Nenhum</option>
+                        </select>
+                    </label>
+                    <label >
+                        <span>Objetivo:</span>
+                        <select id="ipt_objetivo">
+                            <option value="">Selecione seu objetivo</option>
+                            <option value="Hipertrofia">Hipertrofia</option>
+                            <option value="Definição">Definição</option>
+                            <option value="Nenhum">Nenhum</option>
+                        </select>
+                    </label>
+                </div>
+                
+                <div class="linha-input full-width">
+                    <label class="w-100">
+                        <span>Email:</span>
+                        <input type="email" id="ipt_email" placeholder="seu.email@exemplo.com">
+                    </label>
+                </div>
+                
+                <div class="linha-input full-width">
+                    <label class="w-100">
+                        <span>Senha:</span>
+                        <input type="password" id="ipt_senha" placeholder="Mínimo 8 caracteres">
+                        <div class="barra-senha" id="div_forca_senha">
+                            <div class="forca"><span id="span_forca_senha">Insegura</span></div>
+                            <div class="barra-forca-senha">
+                                <div class="barra barra-1" id="div_barra_0"></div>
+                                <div class="barra" id="div_barra_1"></div>
+                                <div class="barra" id="div_barra_2"></div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="linha-input full-width">
+                    <label class="w-100">
+                        <span>Confirme sua Senha:</span>
+                        <input type="password" id="ipt_confirme_senha" placeholder="Repita a senha acima">
+                    </label>
+                </div>
+            </div>
+            
+            <div class="outros-links">
+                <div class="container-btn">
+                    <button type="submit" onclick="finalizarCadastro(event)" class="btn-cadastrar">Cadastrar</button>
+                </div>
+                <p class="link-login">Já possui uma conta? <a href="login.html">Faça Login</a></p>
+            </div>
+        </form>
+        <div id="errorModal" class="modal-fundo">
+        <div class="modal-conteiner">
+            <h3 class="modal-titulo">🚨 Erro de Cadastro</h3>
+            <div class="modal-corpo" id="modal_msg_erros">
+                </div>
+            <button class="modal-fecha-btn" onclick="fecharModal()">OK</button>
+        </div>
+    </div>
+    
+    <script src="js/cadastro.js"></script>
+</body>
+</html>

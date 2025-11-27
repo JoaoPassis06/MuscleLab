@@ -93,7 +93,7 @@ h2:hover {
     cursor: default;
 }
 
-.input-group {
+.input-grupo {
     margin-bottom: 20px;
     text-align: left;
 }
@@ -105,6 +105,7 @@ label {
     margin-bottom: 8px;
     font-weight: 400;
     font-size: 0.9em;
+    
 }
 
 input[type="email"],
@@ -120,6 +121,7 @@ input[type="password"] {
     box-shadow: 0 0 5px rgba(255, 140, 0, 0.1);
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 8px rgba(255, 140, 0, 0.8);
+    margin-top: 10px;
 }
 
 input[type="email"]:hover,
@@ -140,6 +142,10 @@ input[type="password"]:focus{
     border-left: none;
     border-right: none;
     
+}
+input[type="email"]:focus::placeholder,
+input[type="password"]:focus::placeholder{
+    color: transparent;
 }
 
 button[type="submit"] {
@@ -185,124 +191,31 @@ p a:hover {
     color: #e55353;
     margin-top: 10px;
 }
-/*body {
-    font-family: Arial, sans-serif;
-    background-image: url(../imagem/fundo_login.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: #383737;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+
+.input-com-icone {
+    position: relative; 
+    display: block; 
 }
 
-.login-container {
-    display: flex;
-    flex-direction: row;
-    background: #1a1a1a;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    height: 30%;
-    text-align: center;
-}
-.caixa-login1{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.logo{
-    height: 100px;
-    margin: 10px 0px 0px 10px;
-    filter: drop-shadow(0 0 0 transparent);
-    transition: filter 0.3s ease-in-out; 
+
+.icon-input {
+    position: absolute;
+    left: 15px; 
+    top: 70%; 
+    transform: translateY(-50%); 
+    color: #999; 
+    font-size: 1em; 
+    pointer-events: none; 
+    z-index: 5; 
 }
 
-.logo:hover{
-    filter: drop-shadow(-5px -5px 5px blue) 
-            drop-shadow(5px 5px 5px red);
-            cursor: pointer;
-}
-h2 {
-    color: #fe8019ca;
-    margin-bottom: 20px;
-    
+
+.input-com-icone input {
+    padding-left: 40px; 
+    padding-right: 12px; 
 }
 
-.input-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
 
-label {
-    color: #ffffff;
-    display: block;
-    font-family: 'Inter';
-    margin-bottom: 5px;
-    font-weight: bold;
+.input-com-icone input:focus + .icon-input {
+    color: orange; 
 }
-
-input[type="email"],
-input[type="password"] {
-    
-    font-family: 'Inter';
-    width: 100%;
-    padding: 10px;
-    color: white;
-    background-color: #3c3c3c;
-    border: none;
-    border-radius: 4px;
-    box-sizing: border-box;
-    box-shadow: 1px 1px 3px rgba(255, 140, 0, 0.5);
-}
-input[type="email"]:hover,
-input[type="password"]:hover{
-
-    border: 1px solid orange;
-}
-
-input[type="email"]:focus,
-input[type="password"]:focus{
-    outline: none;
-    border-bottom:2px solid orange ;
-    border-radius: 0px;
-    background-color: #1a1a1a;
-    box-shadow:none;
-    transition: all 0.5s ease-in;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    
-}
-
-button[type="submit"] {
-    background-color: #f9a929; 
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: all 0.4s ease-in;
-    font-family: 'Oswald';
-}
-
-button[type="submit"]:hover {
-    background-color: #a24f02;
-}
-
-p{
-    color: #ffffff;
-    text-align: center;
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
-}*/

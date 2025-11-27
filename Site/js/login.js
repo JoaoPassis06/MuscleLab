@@ -52,31 +52,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-// Exemplo em seu arquivo js/login.js ou similar
-
-const emailInput = document.getElementById('email');
-const senhaInput = document.getElementById('senha');
-const originalPlaceholder = emailInput.placeholder;
-const senhaPlaceholder = senhaInput.placeholder; // Salva o texto original
-
-// Evento quando o campo entra em foco (clica ou usa Tab)
-emailInput.addEventListener('focus', function() {
-    this.placeholder = ''; // Define o placeholder como vazio (faz ele sumir)
-});
-senhaInput.addEventListener('focus', function() {
-    this.placeholder = ''; // Define o placeholder como vazio (faz ele sumir)
-});
-
-// Evento quando o campo perde o foco (clica fora)
-emailInput.addEventListener('blur', function() {
-    // Só restaura se o campo estiver vazio (para não sumir o que o usuário digitou)
-    if (this.value === '') { 
-        this.placeholder = originalPlaceholder; // Restaura o placeholder original
-    }
-});
-senhaInput.addEventListener('blur', function() {
-    // Só restaura se o campo estiver vazio (para não sumir o que o usuário digitou)
-    if (this.value === '') { 
-        this.placeholder = senhaPlaceholder; // Restaura o placeholder original
-    }
-});
