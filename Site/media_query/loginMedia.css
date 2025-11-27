@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+@media  screen and (max-width: 750px){
+
+@keyframes aparecendo {
+    0% { background-color: #383737; }
+    50% { background-color: #4a4a4a; }
+    100% { background-color: #383737; }
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url(../imagem/fundo_login.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #383737;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+    /* Animação de Fundo sutil */
+    animation: aparecendo 15s infinite alternate;
+}
+
+/* ---------------------------------
+   CONTAINER
+   --------------------------------- */
+.login-container {
+    
+    background: #1a1a1a;
+    padding: 40px; 
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
+    max-width: 250px;
+    width: 80%; 
+    text-align: center; 
+    
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: subindo 1s ease-out 0.2s forwards;
+}
+
+@keyframes subindo {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------
+   ELEMENTOS DE CONTEÚDO
+   --------------------------------- */
+
+.logo{
+    height: 40%;
+    width: 40%;
+    margin: -20px auto 0 auto; 
+    display: block;
+    filter: drop-shadow(0 0 0 transparent);
+    transition: filter 0.3s ease-in-out; 
+}
+
+.logo:hover{
+    filter: drop-shadow(-5px -5px 5px #0056b3) 
+    drop-shadow(5px 5px 5px #a24f02);
+    cursor: pointer;
+}
+
+h2 {
+    color: #f9a929; 
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    margin-bottom: 25px;
+    margin-top: -25px;
+    letter-spacing:2px;
+    transition: color 0.3s;
+}
+
+h2:hover {
+    color: #ff8c00; 
+    cursor: default;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    color: #ffffff;
+    display: block;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+
+input[type="email"],
+input[type="password"] {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #3c3c3c;
+    border: 1px solid #3c3c3c;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.8);
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover{
+    border: 1px solid #f9a929;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus{
+    outline: none;
+    border-bottom:2px solid orange ;
+    border-radius: 0px;
+    background-color:  #2a2a2a;
+    box-shadow:none;    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    
+}
+
+button[type="submit"] {
+    background-color: #f9a929; 
+    color: #1a1a1a;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.2s ease-in;
+    font-family: 'Oswald', sans-serif;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff8c00;
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
+}
+
+p{
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+p a {
+    color: #f9a929; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+p a:hover {
+    color: #ff8c00;
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #e55353;
+    margin-top: 10px;
+}
+.caixa-login2{
+    display: none;
+}
+}

@@ -85,11 +85,13 @@ ESTILO DOS CONTÉUDOS DENTRO DO CABEÇALHO*/
     
 }
 .login:hover{
-    background-color: rgb(241, 253, 108);
+    background-color: rgb(253, 175, 30);
     color: black;
+    
 }
+
 .cadastro:hover{
-    background-color:  rgb(108, 166, 253);
+    background-color:  rgb(131, 131, 130);
     color: rgb(255, 255, 255);
 }
 nav{
@@ -191,7 +193,7 @@ FORMATAÇÃO DO CONTEINER*/
 .treino:hover{
 
     color: black;
-    background-color: rgb(241, 253, 108);
+    background-color: rgb(255, 130, 28);
     cursor: pointer;
 }
 
