@@ -3,7 +3,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Passion+One:wght@400;700;900&family=Sriracha&display=swap');
 
-
+@keyframes IrLado {
+    from{
+        opacity: 1;
+        transform: translateX(100%);
+    }to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 body{
     background-color: #333
     ;
@@ -190,10 +198,14 @@ FORMATAÇÃO DO CONTEINER*/
     border-radius: 5px;
     transition: background-color 0.4s ease-in-out;
 }
+.treino a{
+    color: white;
+    text-decoration: none;
+}
 .treino:hover{
 
     color: black;
-    background-color: rgb(255, 130, 28);
+    background-color: rgb(255, 147, 59);
     cursor: pointer;
 }
 
@@ -201,21 +213,39 @@ FORMATAÇÃO DO CONTEINER*/
 ESTILO DA SEÇÃO HISTORIA*/
 
 #curiosidade {
+    opacity: 0;
+    animation: IrLado ease-out;
+    animation-timeline: view();
+    animation-range: entry 10% cover 50%;
+    animation-fill-mode: both;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     width: 100%; 
-    height: 550px;
+    height: auto;
     overflow: hidden; 
     border: 2px solid #333;
     margin: 30px auto;
     background-color: #333;
+    transition: all 0.3s ease-in
+}
+#curiosidade h3{
+    color: orange;
+    font-size: 2.5em;
+    margin: 10px;
+    text-align: center;
+    text-shadow: 0px 1px 3px rgba(255, 200, 98, 0.492);
+}
+#div-caixas{
+    display: flex;
+    justify-content: space-around;
+    
 }
 
 
 .caixas {
     margin-top: 30px;
     width: 300px; 
-    height: 75%;
+    height: 470px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -226,33 +256,26 @@ ESTILO DA SEÇÃO HISTORIA*/
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
     opacity: 1;
-    transform: scale(1);
     z-index: 1;
+    
 }
 
-.caixas:hover ~ .caixas {
-    opacity: 0.3;
-}
 .caixas:hover {
-    opacity: 1;
+    opacity: 1 !important;
+    margin-top: 4px;
     transform: scale(1);
     box-shadow: 0 0 20px rgba(219, 166, 52, 0.6), 0 10px 20px rgba(0, 0, 0, 0.3);   
     z-index: 10; 
+    
 }
 
-#curiosidade > .caixas:hover {
-    opacity: 1 !important;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(219, 166, 52, 0.6), 0 10px 20px rgba(0, 0, 0, 0.3);
-    z-index: 10;
-}
-#curiosidade:hover .caixas {
-    opacity: 0.3; 
+#div-caixas:hover .caixas {
+    opacity: 0.15; 
 }
 
 .caixas img {
     width: 100%;
-    height: 60%;
+    height: 300px;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 10px 10px 0px 0px;
@@ -267,7 +290,213 @@ ESTILO DA SEÇÃO HISTORIA*/
     font-weight: normal;
 }
 .caixas a:hover {
-    color: rgb(255, 65, 65);
+    color: rgb(65, 173, 255);
     font-weight: bold;
 }
+/* Defina a cor de fundo e texto principal do footer */
+footer {
+    background-color: var(--bg-dark, #1a1a1a); /* Cor escura do MuscleLab */
+    color: var(--text-light, #ffffff);
+    font-family: 'Inter', sans-serif;
+    padding: 30px 0 0;
+}
 
+.footer-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px; /* Padding lateral */
+}
+
+/* ---------------------------------
+   1. inscrever / ASSINATURA
+   --------------------------------- */
+.container-inscrever {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.inscrever-titulo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8em;
+    color: #f9a929;
+    margin-bottom: 15px;
+    text-shadow: 0px 1px 3px #f9a929a2;
+}
+
+.inscrever-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.input-inscrever {
+    width: 350px;
+    max-width: 80%;
+    padding: 10px 15px;
+    color: var(--text-claro);
+    background-color: #3c3c3c; 
+    border: solid 1px var(--primaria-color); 
+    border-radius: 4px;
+    font-size: 1em;
+}
+.input-inscrever:hover{
+    border: none;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.8);
+}
+
+.input-inscrever:focus::placeholder {
+    color: transparent;
+}
+.input-inscrever:focus{
+    outline: none;
+    border: 1px solid orange;
+}
+
+.btn-inscrever {
+    background-color: #f9a929;
+    color: var(--bg-dark, #1a1a1a);
+    padding: 10px 20px;
+    border: none;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-inscrever:hover {
+    background-color:  #fb9920;
+    color: white;
+}
+
+.inscrever-checkbox {
+    font-size: 0.8em;
+    color: #bbb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 9px;
+}
+
+/* ---------------------------------
+   2. CONTEÚDO PRINCIPAL / COLUNAS
+   --------------------------------- */
+footer{
+    width: 100%;
+    animation: IrLado ease-out;
+    animation-timeline: view();
+    animation-range: entry 15% cover 18%;
+    animation-fill-mode: both;
+}
+.footer-separator {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+}
+
+.conteudo-principal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+/* Estilos de todas as colunas */
+.coluna-info, .coluna-links, .coluna-contato {
+    width: 20%; 
+    min-width: 180px;
+    margin-bottom: 30px;
+}
+
+/* Coluna de Logo/Descrição */
+.logo-footer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo-footer img {
+    width: 100px;
+    margin: 0px;
+}
+
+.logo-footer h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--text-claro);
+    font-size: 1.8em;
+}
+.logo-footer h3 span {
+    color: var(--primaria-color);
+}
+
+.descricao-curta {
+    font-size: 0.9em;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+
+
+.coluna-links h3,
+.coluna-contato h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Estilo dos Links/Texto */
+.coluna-links p,
+.coluna-contato p,
+.coluna-contato a {
+    font-size: 0.9em;
+    color: #bbb;
+    text-decoration: none;
+    line-height: 2;
+    display: block;
+}
+
+.coluna-links a:hover,
+.coluna-contato a:hover {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+/* Redes Sociais */
+
+/* Redes Sociais Container */
+.redes-sociais {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px; 
+}
+
+/* Estilo Base dos Ícones */
+.redes-sociais a {
+    text-decoration: none;
+    color: var(--primary-color, #f9a929); 
+    display: block;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.redes-sociais a i {
+    font-size: 1.8em; 
+}
+
+.redes-sociais a:hover {
+    color: var(--text-light, #ffffff);
+    transform: scale(1.15);
+}
+
+.container-copy {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px 40px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 30px;
+}

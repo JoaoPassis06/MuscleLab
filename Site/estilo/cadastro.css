@@ -61,6 +61,25 @@ body {
     border-bottom-left-radius: 12px;
     animation: sombras 8s infinite alternate;
 }
+.btn-voltar {
+    position: absolute; 
+    top: 20px; 
+    left: 20px;
+    z-index: 10; 
+    color:orange; 
+    font-size: 2.5em; 
+    padding: 10px;
+    background: rgba(0, 0, 0, 0); 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-voltar:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
 
 /* ---------------------------------
    FORMULÁRIO E INPUTS

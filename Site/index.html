@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="estilo/style.css" />
+
     <link rel="shortcut icon" href="imagem/logo.ico" type="image/x-icon" />
+
     <link rel="stylesheet" href="estilo/media.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   </head>
   <body>
     <div id="conteiner">
@@ -27,7 +32,7 @@
 
           <div id="botoes_login">
             <button class="login" onclick="window.location.href='login.html'">LOGIN</button>
-            <button class="cadastro">CADASTRO</button>
+            <button class="cadastro" onclick="window.location.href='cadastro.html'">CADASTRO</button>
           </div>
 
           <div id="aparecer">
@@ -43,8 +48,8 @@
 
             <nav id="lista_menu">
               <ul>
-                <li><a href="">LOGIN</a></li>
-                <li><a href="">CADASTRO</a></li>
+                <li><a href="login.html">LOGIN</a></li>
+                <li><a href="cadastro.html">CADASTRO</a></li>
                 <li><a href="">HOME</a></li>
                 <li><a href="">CURIOSIDADES</a></li>
                 <li><a href="">CONTATO</a></li>
@@ -58,36 +63,99 @@
           <div>
             <h2>SEU GUIA DEFINITIVO DE <br />MUSCULAÇÃO</h2>
             <p>Trasnforme seu corpo. Amplie seu conhecimento</p>
-            <button class="treino">Explore seu treino</button>
+            <button class="treino"><a href="login.html">Explore seu treino</a></button>
           </div>
         </div>
       </div>
       <div id="curiosidade">
-       
-            <div class="caixas">
-                <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
 
-                <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
-
-                Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia) <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
-            </div>
-            <div class="caixas">
-                <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
-
-                <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
-
-                Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia) <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
-            </div>
-            <div class="caixas">
-                <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
-
-                <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
-
-                Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia) <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
-            </div>
         
+          <h3>Curiosidades</h3>
+
+              <div id="div-caixas">
+                <div class="caixas">
+                    <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
+                    <p >Treinar com um parceiro aumenta a sua motivação e aderência ao treino.Fornecendo apoio psicológico, permitindo que treine até a falha muscular com segurança. Isso possibilita mais intensidade. <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
+                </div>
+                <div class="caixas">
+                    <img src="imagem/halter.png" alt="">
+                    <p >Halteres ativam mais músculos estabilizadores do que as barras, pois exigem o equilíbrio de duas cargas independentes. Previnindo desequilíbrios musculares entre os lados do corpo.<br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
+                </div>
+                <div class="caixas">
+                    <img src="imagem/creatina.png" alt="">
+                    <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
+                    Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia). <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
+                </div>
+              </div>
       </div>
-      
+<footer>
+    <div class="footer-wrapper">
+        
+        <div class="container-inscrever">
+            <h3 class="inscrever-titulo">Receba Notícias e Dicas Fitness!</h3>
+            <div class="newsletter-form">
+                <input type="email" class="input-inscrever" placeholder="Digite seu melhor e-mail">
+                <button class="btn-inscrever">Inscrever-se</button>
+            </div>
+            <div class="inscrever-checkbox">
+                <input type="checkbox" id="checkbox-inscricao" class="checkbox-inscricao">
+                <label for="checkbox-inscricao">
+                    <span>Quero receber informações, notícias, eventos e dicas de treino.</span>
+                </label>
+            </div>
+        </div>
+        
+        <hr class="footer-separator">
+        
+        <div class="conteudo-principal">
+            
+            <div class="coluna-info">
+                <div class="logo-footer">
+                    <img src="imagem/logo.png" alt="Logo MuscleLab">
+                    <h3>Muscle<span>Lab</span></h3> 
+                </div>
+                <p class="descricao-curta">
+                    Sua plataforma de treinamento para máximo desempenho. Força, foco e resultados.
+                </p>
+            </div>
+
+            <div class="coluna-links">
+                <h3>Treinamento</h3>
+                <p><a href="#planos">Planos de Treino</a></p>
+                <p><a href="#calculadora">Calculadora de IMC</a></p>
+                <p><a href="#nutricao">Dicas de Nutrição</a></p>
+                <p><a href="#suplementos">Guia de Suplementos</a></p>
+            </div>
+
+            <div class="coluna-links">
+                <h3>Institucional</h3>
+                <p><a href="#sobre">Sobre Nós</a></p>
+                <p><a href="#contato">Fale Conosco</a></p>
+                <p><a href="#faq">FAQ</a></p>
+                <p><a href="#termos">Termos de Uso</a></p>
+            </div>
+
+            <div class="coluna-contato">
+                <h3>Contato</h3>
+                <p>+55 (11) 90000-0000</p>
+                <p>contato@musclelab.com</p>
+                
+                <div class="redes-sociais">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fab fa-twitter"></i></a>
+                    <a href="#" target="_blank"><i class="fab fab fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div class="container-copy">
+        <p> © Copyright 2025 MuscleLab. Todos os direitos reservados. </p>
+    </div>
+</footer>
     </div>
   </body>
 </html>
