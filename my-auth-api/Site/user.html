@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleLab - Dashboard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="estilo/user.css">
+</head>
+<body>
+    
+    <header id="mainHeader">
+        <div class="user-info">
+            <img src="./imagem/default-avatar.png" alt="Foto do Usuário" id="userPhoto" class="user-photo">
+            <h1 id="userNameDisplay">Olá, Usuário MuscleLab!</h1>
+        </div>
+        <button id="logoutBtn" class="btn-logout">Sair <i class="fas fa-sign-out-alt"></i></button>
+    </header>
+
+    <main class="dashboard-content">
+
+        <div class="feature-card" data-feature="quiz">
+            <i class="fas fa-question-circle icon-card"></i>
+            <h2 class="card-title">Montar Meu Treino</h2>
+            <p>Responda a um quiz rápido e personalize seu plano de exercícios.</p>
+            <button class="btn-primary" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+        </div>
+
+        <div class="feature-card" data-feature="imc">
+            <i class="fas fa-calculator icon-card"></i>
+            <h2 class="card-title">Calcular Meu IMC</h2>
+            <p>Monitore seu Índice de Massa Corporal e acompanhe sua evolução.</p>
+            <button class="btn-primary" onclick="abrirIMC()">CALCULAR IMC</button>
+        </div>
+
+        <div class="feature-card" data-feature="treino">
+            <i class="fas fa-dumbbell icon-card"></i>
+            <h2 class="card-title">Ver Meu Treino</h2>
+            <p>Acesse seu plano de treino semanal montado e faça o check-in dos exercícios.</p>
+            <button class="btn-primary" onclick="verTreino()">VER DETALHES</button>
+        </div>
+        
+    </main>
+
+    <script src="js/user.js"></script>
+</body>
+</html>

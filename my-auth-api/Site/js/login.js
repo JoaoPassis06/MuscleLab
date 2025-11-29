@@ -38,8 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 messageDisplay.textContent = 'Login bem-sucedido! Redirecionando...';
                 messageDisplay.className = 'success-message';
 
-                // Redireciona o usuário para a área principal do MuscleLab (ex: /dashboard.html)
-                // window.location.href = '/dashboard.html'; 
+                window.location.href = '/user.html';
                 
             } else {
                 // 4. Falha: Exibe a mensagem de erro da API
