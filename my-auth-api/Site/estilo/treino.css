@@ -1,0 +1,252 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; 
+    width: 100%;
+}
+
+:root {
+    --cor-primaria: #f9a929;
+    --cor-secundaria: #ff8c00; 
+    --fundo-escuro: #121212; 
+    --fundo-cartao: #1e1e1e; 
+    --fundo-input: #3c3c3c;
+    --texto-claro: #ffffff;
+    --texto-cinza: #aaaaaa;
+    --cor-sucesso: #5cb85c;
+    --cor-inativo: #555555;
+    --cor-borda: #444; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fundo-escuro);
+    color: var(--texto-claro);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.fundo-treino {
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.botao-voltar {
+    position: absolute;
+    top: 50px; 
+    left: 40px; 
+    z-index: 10; 
+    color: var(--cor-primaria); 
+    font-size: 2.2em; 
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.botao-voltar:hover {
+    color: var(--cor-secundaria);
+    transform: scale(1.1);
+}
+
+.container-treino {
+    background-color: var(--fundo-cartao);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-top: 5px solid var(--cor-primaria);
+    width: 100%;
+}
+
+.cabecalho-treino {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 20px;
+}
+
+.titulo-principal {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    color: var(--texto-claro);
+    margin-bottom: 5px;
+}
+
+.lista-exercicios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 2px solid var(--cor-primaria); 
+    border-radius: 6px;
+    overflow: hidden; 
+    background-color: #0d0d0d;
+}
+
+.lista-exercicios .cabecalho-tabela {
+    display: grid;
+    grid-template-columns: 2fr 1fr 60px;
+    font-family: 'Oswald', sans-serif;
+    background-color: var(--cor-primaria);
+    color: var(--fundo-escuro);
+    font-weight: 700;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.cabecalho-tabela div:last-child {
+    text-align: center;
+}
+
+.item-exercicio {
+    display: grid;
+    grid-template-columns: 2fr 1fr 60px;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--cor-borda);
+    background-color: var(--fundo-cartao);
+    transition: background-color 0.3s;
+}
+
+.item-exercicio:last-child {
+    border-bottom: none;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.nome-exercicio {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--texto-claro);
+}
+
+.coluna-series {
+    font-size: 0.9em;
+    color: var(--texto-cinza);
+}
+
+.icone-check {
+    font-size: 1.5em;
+    color: var(--cor-inativo); 
+    cursor: pointer;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.item-exercicio.completed {
+    background-color: #282828;
+}
+
+.item-exercicio.completed .nome-exercicio {
+    text-decoration: line-through;
+    color: var(--texto-cinza);
+}
+
+.item-exercicio.completed .icone-check {
+    color: var(--cor-sucesso); 
+    font-weight: 900;
+}
+
+.checkin-final {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--cor-borda);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.seletor-status {
+    padding: 10px 15px;
+    background-color: var(--fundo-input); 
+    color: var(--texto-claro);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    appearance: none; 
+}
+
+.btn-principal {
+    background-color: var(--cor-primaria);
+    color: var(--fundo-escuro);
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Oswald', sans-serif;
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-secundaria);
+}
+
+@media (max-width: 650px) {
+    .fundo-treino {
+        padding: 20px 10px; 
+    }
+
+    .container-treino {
+        padding: 20px 15px;
+    }
+    
+    .botao-voltar {
+        left: 22px; 
+        top: 30px;
+    }
+
+    .lista-exercicios {
+        border: none; 
+        background-color: transparent;
+    }
+
+    .cabecalho-tabela {
+        display: none; 
+    }
+    
+    .item-exercicio {
+        display: block;
+        padding: 15px 10px;
+        border: 1px solid var(--cor-borda);
+        border-radius: 4px;
+        margin-bottom: 10px;
+        position: relative; 
+        background-color: var(--fundo-cartao);
+    }
+
+    .item-exercicio .detalhes,
+    .item-exercicio .coluna-series {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .coluna-series {
+        color: var(--cor-primaria);
+        font-weight: 600;
+    }
+
+    .icone-check {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2em;
+    }
+}

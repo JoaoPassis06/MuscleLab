@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleLab - Quiz do Treino</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="estilo/quiz.css">
+</head>
+<body>
+    <div class="container-quiz">
+        
+        <a href="user.html" class="botao-voltar" title="Voltar para a página de usuário">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
+        <div class="cabecalho-quiz">
+            <h1 class="titulo-principal">MONTE SEU TREINO IDEAL</h1>
+            <p class="subtitulo-quiz">Responda às 10 perguntas para personalizar sua jornada MuscleLab.</p>
+        </div>
+
+        <div class="cartao-quiz">
+            <div class="progresso-quiz">
+                <span id="pergunta-atual">1</span> de 10
+            </div>
+            
+            <h2 id="texto-pergunta" class="texto-pergunta">Carregando pergunta...</h2>
+            
+            <div id="container-opcoes" class="container-opcoes">
+                </div>
+
+            <div class="navegacao-quiz">
+                <button id="btn-anterior" class="btn-geral btn-anterior" disabled>Anterior</button>
+                <button id="btn-proximo" class="btn-geral btn-proximo" disabled>Próxima</button>
+                <button id="btn-finalizar" class="btn-geral btn-finalizar" style="display: none;">Finalizar Quiz</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/quiz.js"></script> 
+</body>
+</html>

@@ -14,35 +14,35 @@
 </head>
 <body>
     
-    <header id="mainHeader">
-        <div class="user-info">
-            <img src="./imagem/default-avatar.png" alt="Foto do Usuário" id="userPhoto" class="user-photo">
-            <h1 id="userNameDisplay">Olá, Usuário MuscleLab!</h1>
+    <header id="cabecalho-principal">
+        <div class="info-usuario">
+            <img src="./imagem/default-avatar.png" alt="Foto do Usuário" id="foto-usuario" class="foto-usuario">
+            <h1 id="exibir-nome-usuario">Olá, Usuário MuscleLab!</h1>
         </div>
-        <button id="logoutBtn" class="btn-logout">Sair <i class="fas fa-sign-out-alt"></i></button>
+        <button id="btn-sair" class="btn-sair">Sair <i class="fas fa-sign-out-alt"></i></button>
     </header>
 
-    <main class="dashboard-content">
+    <main class="conteudo-painel">
 
-        <div class="feature-card" data-feature="quiz">
-            <i class="fas fa-question-circle icon-card"></i>
-            <h2 class="card-title">Montar Meu Treino</h2>
+        <div class="cartao-recurso" data-recurso="quiz">
+            <i class="fas fa-question-circle icone-cartao"></i>
+            <h2 class="titulo-cartao">Montar Meu Treino</h2>
             <p>Responda a um quiz rápido e personalize seu plano de exercícios.</p>
-            <button class="btn-primary" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+            <button class="btn-principal" onclick="iniciarQuiz()">INICIAR QUIZ</button>
         </div>
 
-        <div class="feature-card" data-feature="imc">
-            <i class="fas fa-calculator icon-card"></i>
-            <h2 class="card-title">Calcular Meu IMC</h2>
+        <div class="cartao-recurso" data-recurso="imc">
+            <i class="fas fa-calculator icone-cartao"></i>
+            <h2 class="titulo-cartao">Calcular Meu IMC</h2>
             <p>Monitore seu Índice de Massa Corporal e acompanhe sua evolução.</p>
-            <button class="btn-primary" onclick="abrirIMC()">CALCULAR IMC</button>
+            <button class="btn-principal" onclick="abrirIMC()">CALCULAR IMC</button>
         </div>
 
-        <div class="feature-card" data-feature="treino">
-            <i class="fas fa-dumbbell icon-card"></i>
-            <h2 class="card-title">Ver Meu Treino</h2>
+        <div class="cartao-recurso" data-recurso="treino">
+            <i class="fas fa-dumbbell icone-cartao"></i>
+            <h2 class="titulo-cartao">Ver Meu Treino</h2>
             <p>Acesse seu plano de treino semanal montado e faça o check-in dos exercícios.</p>
-            <button class="btn-primary" onclick="verTreino()">VER DETALHES</button>
+            <button class="btn-principal" onclick="verTreino()">VER DETALHES</button>
         </div>
         
     </main>

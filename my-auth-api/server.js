@@ -1,41 +1,45 @@
-// server.js - Versão Final e Correta
+// server.js - Configuração do Servidor MuscleLab
 
 require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const db = require('./db'); // Importa a conexão com o DB
+const db = require('./db');
 
-// 🚨 CORREÇÃO: As variáveis de rota devem ser declaradas AQUI
 const userRoutes = require('./userRoutes'); 
 const dataRoutes = require('./dataRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// --- 1. Middlewares de API ---
+/**
+ * CONFIGURAÇÕES BÁSICAS
+ * Aqui eu libero o acesso para outros endereços (CORS) e 
+ * preparo o servidor para entender dados em formato JSON.
+ */
 app.use(cors()); 
 app.use(bodyParser.json());
 app.use(express.json());
 
-
-// --- 2. Middleware para Servir Arquivos Estáticos ---
-// Configura o Express para servir arquivos estáticos (HTML, CSS, JS) 
-// da pasta 'Site'. (Isso requer que a pasta 'Site' esteja no mesmo nível que server.js)
+/**
+ * ARQUIVOS DO SITE
+ * Comando para o servidor entregar os arquivos da pasta 'Site' 
+ * (HTML, CSS e as fotos) quando alguém acessar o endereço.
+ */
 app.use(express.static('Site'));
 
-
-// --- 3. Rotas de API ---
-
-// Rotas de Cadastro e Login (Não Protegidas)
+/**
+ * DEFINIÇÃO DAS ROTAS
+ * Separo o que é login/cadastro do que são as funções do usuário logado.
+ */
 app.use('/api/users', userRoutes);
-
-// Rotas Protegidas (IMC, Perfil, etc.)
 app.use('/api/data', dataRoutes); 
 
-
-// --- 4. Inicialização do Servidor ---
+/**
+ * LIGAR O SERVIDOR
+ * Inicia o sistema na porta configurada (geralmente a 3000).
+ */
 app.listen(PORT, () => {
     console.log(`Servidor MuscleLab rodando na porta ${PORT}`);
 });

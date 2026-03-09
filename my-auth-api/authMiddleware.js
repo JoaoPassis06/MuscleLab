@@ -1,33 +1,36 @@
-// authMiddleware.js
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
 /**
- * Middleware para verificar o Token JWT
+ * VERIFICAÇÃO DE SEGURANÇA (TOKEN)
+ * Aqui eu confiro se quem está tentando acessar a rota está "logado".
+ * Eu procuro por um código (token) que deve ser enviado no cabeçalho da requisição.
  */
 const verifyToken = (req, res, next) => {
-    // 1. Tenta obter o token do cabeçalho 'Authorization' (padrão 'Bearer <token>')
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ message: "Acesso negado. Token não fornecido ou formato inválido." });
+        return res.status(401).json({ message: "Acesso negado. Você precisa estar logado." });
     }
 
-    // 2. Extrai o token removendo "Bearer "
     const token = authHeader.split(' ')[1];
 
     try {
-        // 3. Verifica e decodifica o token usando a chave secreta
+        /**
+         * Se o código existir, eu tento "abrir" ele com a minha chave secreta.
+         * Se der certo, eu descubro quem é o usuário e libero a passagem para a próxima etapa.
+         */
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         
-        // 4. Adiciona o payload do usuário (ID e Email) ao objeto de requisição
         req.user = decoded; 
 
-        // 5. Continua para a próxima função (a rota protegida)
         next();
 
     } catch (err) {
-        // Erro se o token for inválido, expirado, ou a assinatura não coincidir
-        return res.status(403).json({ message: "Token inválido ou expirado." });
+        /**
+         * Se o código estiver errado ou já tiver vencido, eu barro o acesso por aqui mesmo.
+         */
+        return res.status(403).json({ message: "Sua sessão expirou ou o código de acesso é inválido." });
     }
 };
 

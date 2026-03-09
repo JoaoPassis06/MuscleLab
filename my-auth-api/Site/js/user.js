@@ -1,9 +1,9 @@
 
 
 const API_BASE_URL = 'http://localhost:3000/api/data'; 
-const userNameDisplay = document.getElementById('userNameDisplay');
-const userPhoto = document.getElementById('userPhoto');
-const logoutBtn = document.getElementById('logoutBtn');
+const userNameDisplay = document.getElementById('exibir-nome-usuario');
+const userPhoto = document.getElementById('foto-usuario');
+const logoutBtn = document.getElementById('btn-sair');
 
 // -----------------------------------------------------
 // FUNÇÕES DE UTILIDADE E JWT
@@ -63,7 +63,7 @@ function handleLogout(message = 'Logout realizado com sucesso.') {
 
 function iniciarQuiz() {
     alert('Função Quiz: Redirecionando para a página de perguntas para montar o treino...');
-    // window.location.href = 'quiz.html'; 
+    window.location.href = 'quiz.html'; 
 }
 
 function abrirIMC() {
@@ -73,7 +73,7 @@ function abrirIMC() {
 
 function verTreino() {
     alert('Função Treino: Redirecionando para a visualização do plano de treino...');
-    // window.location.href = 'treino.html';
+    window.location.href = 'treino.html';
 }
 
 
@@ -89,7 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Configura o botão de logout
-    logoutBtn.addEventListener('click', () => {
-        handleLogout();
-    });
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            handleLogout();
+        });
+    }
 });

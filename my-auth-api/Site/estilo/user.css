@@ -1,30 +1,27 @@
 @charset "UTF-8";
 
-
 :root {
-    --primary-color: #f9a929; 
-    --secondary-color: #ff8c00;
-    --bg-dark: #121212;
-    --card-bg: #1e1e1e;
-    --text-light: #ffffff;
-    --text-secondary: #aaaaaa;
+    --cor-primaria: #f9a929; 
+    --cor-secundaria: #ff8c00;
+    --fundo-escuro: #121212;
+    --fundo-cartao: #1e1e1e;
+    --texto-claro: #ffffff;
+    --texto-cinza: #aaaaaa;
+    --cor-erro: #e55353;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    background-color: var(--fundo-escuro);
+    color: var(--texto-claro);
     margin: 0;
     padding: 0;
     min-height: 100vh;
 }
 
-/* ---------------------------------
-   HEADER
-   --------------------------------- */
-#mainHeader {
-    background-color: var(--card-bg);
-    border-bottom: 2px solid var(--primary-color);
+#cabecalho-principal {
+    background-color: var(--fundo-cartao);
+    border-bottom: 2px solid var(--cor-primaria);
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
@@ -32,31 +29,31 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.user-info {
+.info-usuario {
     display: flex;
     align-items: center;
 }
 
-.user-photo {
+.foto-usuario {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 15px;
-    border: 3px solid var(--primary-color);
+    border: 3px solid var(--cor-primaria);
 }
 
-#userNameDisplay {
+#exibir-nome-usuario {
     font-family: 'Oswald', sans-serif;
     font-size: 1.8em;
-    color: var(--text-light);
+    color: var(--texto-claro);
     margin: 0;
 }
 
-.btn-logout {
+.btn-sair {
     background-color: transparent;
-    border: 1px solid var(--text-secondary);
-    color: var(--text-secondary);
+    border: 1px solid var(--texto-cinza);
+    color: var(--texto-cinza);
     padding: 8px 15px;
     border-radius: 4px;
     cursor: pointer;
@@ -64,16 +61,13 @@ body {
     font-size: 0.9em;
 }
 
-.btn-logout:hover {
-    background-color: var(--error-color, #e55353);
-    color: var(--text-light);
-    border-color: var(--error-color, #e55353);
+.btn-sair:hover {
+    background-color: var(--cor-erro);
+    color: var(--texto-claro);
+    border-color: var(--cor-erro);
 }
 
-/* ---------------------------------
-   CONTEÚDO PRINCIPAL / CARDS
-   --------------------------------- */
-.dashboard-content {
+.conteudo-painel {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -81,44 +75,44 @@ body {
     padding: 50px 20px;
 }
 
-.feature-card {
-    background-color: var(--card-bg);
+.cartao-recurso {
+    background-color: var(--fundo-cartao);
     width: 300px;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s, box-shadow 0.3s;
-    border-top: 5px solid var(--primary-color);
+    border-top: 5px solid var(--cor-primaria);
 }
 
-.feature-card:hover {
+.cartao-recurso:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(249, 169, 41, 0.2);
 }
 
-.icon-card {
+.icone-cartao {
     font-size: 3em;
-    color: var(--primary-color);
+    color: var(--cor-primaria);
     margin-bottom: 15px;
 }
 
-.card-title {
+.titulo-cartao {
     font-family: 'Oswald', sans-serif;
     font-size: 1.5em;
-    color: var(--text-light);
+    color: var(--texto-claro);
     margin-bottom: 10px;
 }
 
-.feature-card p {
-    color: var(--text-secondary);
+.cartao-recurso p {
+    color: var(--texto-cinza);
     font-size: 0.9em;
     margin-bottom: 25px;
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--bg-dark);
+.btn-principal {
+    background-color: var(--cor-primaria);
+    color: var(--fundo-escuro);
     padding: 10px 25px;
     border: none;
     border-radius: 4px;
@@ -129,26 +123,25 @@ body {
     width: 100%;
 }
 
-.btn-primary:hover {
-    background-color: var(--secondary-color);
+.btn-principal:hover {
+    background-color: var(--cor-secundaria);
 }
 
-/* Media Query para telas menores */
 @media (max-width: 768px) {
-    #mainHeader {
+    #cabecalho-principal {
         padding: 15px 20px;
     }
-    .user-photo {
+    .foto-usuario {
         width: 50px;
         height: 50px;
     }
-    #userNameDisplay {
+    #exibir-nome-usuario {
         font-size: 1.5em;
     }
-    .dashboard-content {
+    .conteudo-painel {
         padding: 30px 10px;
     }
-    .feature-card {
+    .cartao-recurso {
         width: 90%;
     }
 }

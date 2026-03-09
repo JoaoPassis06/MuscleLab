@@ -1,15 +1,15 @@
-// dataRoutes.js (Rotas Protegidas para Perfil, IMC e Treino)
 const express = require('express');
 const db = require('./db');
-const verifyToken = require('./authMiddleware'); // Middleware de autenticação JWT
+const verifyToken = require('./authMiddleware');
 
 const router = express.Router();
 
-// -----------------------------------------------------
-// ROTA 1: GET /api/data/profile (Buscar Dados do Perfil)
-// -----------------------------------------------------
+/**
+ * BUSCAR DADOS DO PERFIL
+ * Aqui eu pego as informações básicas do usuário (nome, objetivo, nível, etc)
+ * direto do banco de dados usando o ID que vem do token de login.
+ */
 router.get('/profile', verifyToken, async (req, res) => {
-    // O ID do usuário vem do JWT decodificado no middleware
     const userId = req.user.usuario_id; 
 
     try {
@@ -33,24 +33,24 @@ router.get('/profile', verifyToken, async (req, res) => {
     }
 });
 
-// -----------------------------------------------------
-// ROTA 2: POST /api/data/imc (Registrar Novo IMC)
-// -----------------------------------------------------
+/**
+ * REGISTRAR IMC
+ * Este bloco recebe o peso e a altura que o usuário enviou,
+ * valida se os números fazem sentido e salva no histórico de IMC dele.
+ */
 router.post('/imc', verifyToken, async (req, res) => {
     const userId = req.user.usuario_id;
     const { peso, altura } = req.body;
-
+    
     if (!peso || !altura) {
         return res.status(400).json({ message: "Peso e altura são obrigatórios." });
     }
     
-    // Simples validação de dados (pode ser mais robusta)
     if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
-        return res.status(400).json({ message: "Peso e altura devem ser números positivos válidos." });
+        return res.status(400).json({ message: "Peso e altura devem ser números positivos." });
     }
 
     try {
-        // fkUsuario, peso, altura, dtRegistro
         const [result] = await db.execute(
             'INSERT INTO imc (fkUsuario, peso, altura) VALUES (?, ?, ?)',
             [userId, peso, altura]
@@ -67,9 +67,11 @@ router.post('/imc', verifyToken, async (req, res) => {
     }
 });
 
-// -----------------------------------------------------
-// ROTA 3: POST /api/data/treino (Registrar Check-in de Treino)
-// -----------------------------------------------------
+/**
+ * CHECK-IN DE TREINO
+ * Serve para marcar que o usuário treinou. Eu salvo qual foi o treino
+ * e como ele se sentiu (Intenso, Leve ou Mediano).
+ */
 router.post('/treino', verifyToken, async (req, res) => {
     const userId = req.user.usuario_id;
     const { treino, status_treino } = req.body;
@@ -78,16 +80,14 @@ router.post('/treino', verifyToken, async (req, res) => {
         return res.status(400).json({ message: "Treino e status de treino são obrigatórios." });
     }
     
-    // Validação para garantir que o status_treino é válido (conforme o CHECK do SQL)
     const statusValidos = ['Intenso', 'Leve', 'Mediano'];
     if (!statusValidos.includes(status_treino)) {
         return res.status(400).json({ 
-            message: `Status inválido. Use um destes: ${statusValidos.join(', ')}` 
+            message: `Status inválido. Use: ${statusValidos.join(', ')}` 
         });
     }
 
     try {
-        // fkUsuario, treino, status_treino, dtHora
         const [result] = await db.execute(
             'INSERT INTO checkTreino (fkUsuario, treino, status_treino) VALUES (?, ?, ?)',
             [userId, treino, status_treino]
@@ -103,6 +103,5 @@ router.post('/treino', verifyToken, async (req, res) => {
         res.status(500).json({ message: "Erro interno ao salvar check-in de treino." });
     }
 });
-
 
 module.exports = router;
