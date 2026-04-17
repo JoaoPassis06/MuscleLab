@@ -1,2 +1,3 @@
 my-auth-api/.env
 my-auth-api/node_modules/
+my-auth-api/node_modules
