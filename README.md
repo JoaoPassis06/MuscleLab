@@ -4,7 +4,9 @@ O **MuscleLab** é uma aplicação completa para entusiastas da musculação. O 
 
 ---
 
-### 🚀 Tecnologias e Ferramentas
+<p>
+  <strong><font size="3">🚀 Tecnologias e Ferramentas</font></strong>
+</p>
 
 **Desenvolvimento:**
 <br/>
@@ -16,7 +18,9 @@ O **MuscleLab** é uma aplicação completa para entusiastas da musculação. O 
 
 ---
 
-### 🎯 Funcionalidades Implementadas
+<p>
+  <strong><font size="3">🎯 Funcionalidades Implementadas</font></strong>
+</p>
 
 * **🔐 Sistema de Autenticação:** Login e Cadastro 100% funcionais com validação de credenciais no banco de dados.
 * **📝 Quiz de Treino:** Algoritmo que processa as respostas do usuário (objetivo, nível e frequência) para gerar uma rotina de exercícios específica.
@@ -25,7 +29,9 @@ O **MuscleLab** é uma aplicação completa para entusiastas da musculação. O 
 
 ---
 
-### 🗄️ Estrutura de Dados
+<p>
+  <strong><font size="3">🗄️ Estrutura de Dados</font></strong>
+</p>
 O banco de dados MySQL foi estruturado para gerenciar:
 - **Tabela de Usuários:** Armazenamento de nomes, e-mails e senhas (criptografadas).
 - **Tabela de Treinos:** Relacionamento entre o ID do usuário e a ficha gerada pelo quiz.
