@@ -1,174 +1,406 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="estilo/style.css" />
-
-    <link rel="shortcut icon" href="imagem/logo.ico" type="image/x-icon" />
-
-    <link rel="stylesheet" href="estilo/media.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  </head>
-  <body>
-    <div id="conteiner">
-      <div class="banner">
-        <header>
-          <div id="parte-1">
-            <img src="imagem/logo.png" alt="" class="logo" />
-            <h1>MuscleLab</h1>
-          </div>
-          <nav>
-            <ul>
-              <li><a href="#">História</a></li>
-              <li><a href="#">História</a></li>
-              <li><a href="#">Curiosidades</a></li>
-              <li class="a-ultimo"><a href="#">Contato</a></li>
-            </ul>
-          </nav>
-
-          <div id="botoes_login">
-            <button class="login" onclick="window.location.href='login.html'">LOGIN</button>
-            <button class="cadastro" onclick="window.location.href='cadastro.html'">CADASTRO</button>
-          </div>
-
-          <div id="aparecer">
-            <div id="ligar">
-              <button onclick="menu()">
-                <img
-                  style="width: 50px; height: 50px"
-                  src="imagem/menu.png"
-                  alt="Menu"
-                />
-              </button>
-            </div>
-
-            <nav id="lista_menu">
-              <ul>
-                <li><a href="login.html">LOGIN</a></li>
-                <li><a href="cadastro.html">CADASTRO</a></li>
-                <li><a href="">HOME</a></li>
-                <li><a href="">CURIOSIDADES</a></li>
-                <li><a href="">CONTATO</a></li>
-                <li><a href="">Contato</a></li>
-              </ul>
-            </nav>
-          </div>
-        </header>
-
-        <div class="banner-1">
-          <div>
-            <h2>SEU GUIA DEFINITIVO DE <br />MUSCULAÇÃO</h2>
-            <p>Trasnforme seu corpo. Amplie seu conhecimento</p>
-            <button class="treino"><a href="login.html">Explore seu treino</a></button>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MuscleLab — Sua Evolução Começa Aqui</title>
+  <link rel="shortcut icon" href="imagem/logo.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="estilo/style.css">
+</head>
+<body>
+ 
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div id="progress"></div>
+ 
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="nav-brand">
+    <img src="imagem/logo.png" alt="MuscleLab"/>
+    Muscle<span>Lab</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#curiosidades">Dicas</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="nav-ctas">
+    <button class="btn-ghost" onclick="window.location.href='login.html'">Login</button>
+    <button class="btn-solid" onclick="window.location.href='cadastro.html'">Começar Agora</button>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+ 
+<div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home"         onclick="closeMenu()">Home</a>
+  <a href="#sobre"        onclick="closeMenu()">Sobre</a>
+  <a href="#curiosidades" onclick="closeMenu()">Dicas</a>
+  <a href="#planos"       onclick="closeMenu()">Planos</a>
+  <a href="#depoimentos"  onclick="closeMenu()">Depoimentos</a>
+  <a href="#contato"      onclick="closeMenu()">Contato</a>
+  <div class="mobile-menu-ctas">
+    <button class="btn-ghost" onclick="window.location.href='login.html'">Login</button>
+    <button class="btn-solid" onclick="window.location.href='cadastro.html'">Começar Agora</button>
+  </div>
+</div>
+ 
+<!-- ══ HERO ══ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Guia Definitivo de Musculação</div>
+    <h1 class="hero-title">
+      <span class="line-stroke">Transforme</span>
+      <span class="line-orange">seu corpo</span>
+    </h1>
+    <p class="hero-sub">Conhecimento, treino e nutrição de alto nível para quem leva a evolução a sério. Seu próximo nível começa aqui.</p>
+    <div class="hero-actions">
+      <a href="login.html" class="btn-hero btn-hero-primary">
+        Explorar treinos
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#sobre" class="btn-hero btn-hero-outline">Saiba mais</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><b>10</b><span>Atletas ativos</span></div>
+    <div class="hero-stat"><b>100+</b><span>Treinos disponíveis</span></div>
+    <div class="hero-stat"><b>98%</b><span>Satisfação</span></div>
+    <div class="hero-stat"><b>3 anos</b><span>De experiência</span></div>
+  </div>
+</section>
+ 
+<!-- ══ SOBRE ══ -->
+<section class="section-sobre" id="sobre">
+  <div class="reveal-left">
+    <div style="position:relative;">
+      <div class="sobre-img-wrap">
+        <img src="imagem/banner.png" alt="MuscleLab Treino"/>
       </div>
-      <div id="curiosidade">
-
-        
-          <h3>Curiosidades</h3>
-
-              <div id="div-caixas">
-                <div class="caixas">
-                    <img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt="">
-                    <p >Treinar com um parceiro aumenta a sua motivação e aderência ao treino.Fornecendo apoio psicológico, permitindo que treine até a falha muscular com segurança. Isso possibilita mais intensidade. <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
-                </div>
-                <div class="caixas">
-                    <img src="imagem/halter.png" alt="">
-                    <p >Halteres ativam mais músculos estabilizadores do que as barras, pois exigem o equilíbrio de duas cargas independentes. Previnindo desequilíbrios musculares entre os lados do corpo.<br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
-                </div>
-                <div class="caixas">
-                    <img src="imagem/creatina.png" alt="">
-                    <p >A Creatina não engorda por causar retenção de gordura; ela causa uma retenção de água dentro da célula muscular.
-                    Ela ajuda a aumentar o volume                 muscular, o que é um fator para o crescimento                 (hipertrofia). <br><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">saiba mais...</a></p>
-                </div>
-              </div>
+      <div class="sobre-badge">3+<small>Anos de expertise</small></div>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <p class="section-label">Quem somos</p>
+    <h2 class="section-title">Ciência a favor da sua <em>evolução</em></h2>
+    <p class="section-sub" style="margin-bottom:0;">Somos uma plataforma criada por especialistas em musculação, nutrição esportiva e fisiologia do exercício. Acreditamos que informação de qualidade é o primeiro passo para resultados reais.</p>
+    <div class="sobre-features stagger">
+      <div class="feat-item"><div class="feat-icon">⚡</div><div><h4>Treinos Cientificamente Validados</h4><p>Protocolos baseados em evidências para hipertrofia máxima e performance.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">🥗</div><div><h4>Nutrição Personalizada</h4><p>Guias práticos de alimentação alinhados com seus objetivos específicos.</p></div></div>
+      <div class="feat-item"><div class="feat-icon">📊</div><div><h4>Acompanhamento de Progresso</h4><p>Dashboards intuitivos para monitorar sua evolução semana a semana.</p></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ COMO FUNCIONA ══ -->
+<section class="section-como" id="como">
+  <div class="como-header reveal">
+    <p class="section-label" style="justify-content:center;"><span style="display:none;"></span>Método</p>
+    <h2 class="section-title">Como o <em>MuscleLab</em> funciona</h2>
+  </div>
+  <div class="como-steps stagger">
+    <div class="como-step"><div class="step-num">01</div><h4>Crie sua conta</h4><p>Cadastro em 2 minutos. Sem cartão de crédito para começar.</p></div>
+    <div class="como-step"><div class="step-num">02</div><h4>Defina seus objetivos</h4><p>Informe seu nível, disponibilidade e meta — hipertrofia, cutting ou força.</p></div>
+    <div class="como-step"><div class="step-num">03</div><h4>Receba seu plano</h4><p>Treino e nutrição personalizados para o seu perfil, gerados automaticamente.</p></div>
+    <div class="como-step"><div class="step-num">04</div><h4>Evolua e monitore</h4><p>Registre treinos, acompanhe métricas e ajuste conforme seu progresso.</p></div>
+  </div>
+</section>
+ 
+<!-- ══ CURIOSIDADES (CAROUSEL) ══ -->
+<section class="section-curiosidades" id="curiosidades">
+  <div class="reveal" style="margin-bottom:44px;">
+    <p class="section-label">Conteúdo</p>
+    <h2 class="section-title">Dicas &amp; <em>Curiosidades</em></h2>
+    <p class="section-sub">Conhecimento que transforma — aprenda com a ciência e eleve seu treino.</p>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img"><img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt=""/><span class="card-tag">Motivação</span></div>
+        <div class="curiosidade-card-body"><h3>Parceiro de treino</h3><p>Treinar com parceiro aumenta a intensidade e segurança, permitindo treinar até a falha muscular com apoio.</p><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">Saiba mais →</a></div>
       </div>
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img"><img src="imagem/halter.png" alt=""/><span class="card-tag">Equipamentos</span></div>
+        <div class="curiosidade-card-body"><h3>Halteres vs. Barras</h3><p>Halteres ativam mais músculos estabilizadores, prevenindo desequilíbrios musculares entre os lados do corpo.</p><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">Saiba mais →</a></div>
+      </div>
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img"><img src="imagem/creatina.png" alt=""/><span class="card-tag">Suplementação</span></div>
+        <div class="curiosidade-card-body"><h3>Creatina: mitos e verdades</h3><p>Não causa retenção de gordura. A água retida fica dentro da célula muscular, favorecendo a hipertrofia.</p><a href="https://www.infomoney.com.br/saude/mitos-e-verdades-sobre-a-creatina-o-que-diz-a-ciencia/" target="_blank">Saiba mais →</a></div>
+      </div>
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img" style="font-size:3.5rem;min-height:180px;">😴</div>
+        <div class="curiosidade-card-body"><h3>Sono e crescimento muscular</h3><p>80% da liberação de GH ocorre durante o sono profundo. Dormir bem é tão importante quanto treinar bem.</p><a href="#">Saiba mais →</a></div>
+      </div>
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img" style="font-size:3.5rem;min-height:180px;">🥩</div>
+        <div class="curiosidade-card-body"><h3>Quanto de proteína você precisa?</h3><p>A ciência indica 1,6 a 2,2g por kg de peso para maximizar a síntese proteica e hipertrofia muscular.</p><a href="#">Saiba mais →</a></div>
+      </div>
+      <!-- Duplicatas para loop -->
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img"><img src="imagem/Gemini_Generated_Image_g191xig191xig191 (1).png" alt=""/><span class="card-tag">Motivação</span></div>
+        <div class="curiosidade-card-body"><h3>Parceiro de treino</h3><p>Treinar com parceiro aumenta a intensidade e segurança, permitindo treinar até a falha muscular com apoio.</p><a href="#">Saiba mais →</a></div>
+      </div>
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img"><img src="imagem/halter.png" alt=""/><span class="card-tag">Equipamentos</span></div>
+        <div class="curiosidade-card-body"><h3>Halteres vs. Barras</h3><p>Halteres ativam mais músculos estabilizadores, prevenindo desequilíbrios musculares entre os lados do corpo.</p><a href="#">Saiba mais →</a></div>
+      </div>
+      <div class="curiosidade-card">
+        <div class="curiosidade-card-img"><img src="imagem/creatina.png" alt=""/><span class="card-tag">Suplementação</span></div>
+        <div class="curiosidade-card-body"><h3>Creatina: mitos e verdades</h3><p>Não causa retenção de gordura. A água retida fica dentro da célula muscular, favorecendo a hipertrofia.</p><a href="#">Saiba mais →</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="carousel-btn" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <button class="carousel-btn" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+ 
+<!-- ══ PLANOS ══ -->
+<section class="section-planos" id="planos">
+  <div class="reveal">
+    <p class="section-label">Planos</p>
+    <h2 class="section-title">Escolha seu <em>plano</em></h2>
+    <p class="section-sub">Do iniciante ao atleta avançado — temos o plano certo para a sua fase.</p>
+  </div>
+  <div class="planos-grid stagger">
+    <div class="plano-card">
+      <span class="plano-badge badge-basic">Básico</span>
+      <div class="plano-name">Starter</div>
+      <p class="plano-desc">Para quem está começando a jornada.</p>
+      <div class="plano-price-wrap"><span class="plano-currency">R$</span><span class="plano-price">49</span><span class="plano-period">/mês</span></div>
+      <div class="plano-divider"></div>
+      <ul class="plano-features">
+        <li>Acesso a 50+ treinos</li>
+        <li>Calculadora de IMC e TDEE</li>
+        <li>Guia de nutrição básico</li>
+        <li>Suporte por e-mail</li>
+      </ul>
+      <button class="btn-plano" onclick="window.location.href='cadastro.html'">Começar grátis</button>
+    </div>
+    <div class="plano-card popular">
+      <span class="plano-badge badge-popular">⚡ Mais popular</span>
+      <div class="plano-name">Pro</div>
+      <p class="plano-desc">Para quem leva o treino a sério.</p>
+      <div class="plano-price-wrap"><span class="plano-currency">R$</span><span class="plano-price">99</span><span class="plano-period">/mês</span></div>
+      <div class="plano-divider"></div>
+      <ul class="plano-features">
+        <li>Tudo do Starter, mais:</li>
+        <li>Treinos personalizados por IA</li>
+        <li>Plano alimentar completo</li>
+        <li>Controle de progressão semanal</li>
+        <li>Comunidade exclusiva</li>
+        <li>Suporte prioritário</li>
+      </ul>
+      <button class="btn-plano primary" onclick="window.location.href='cadastro.html'">Assinar Pro</button>
+    </div>
+    <div class="plano-card">
+      <span class="plano-badge badge-pro">Elite</span>
+      <div class="plano-name">Elite</div>
+      <p class="plano-desc">Para atletas e alta performance.</p>
+      <div class="plano-price-wrap"><span class="plano-currency">R$</span><span class="plano-price">199</span><span class="plano-period">/mês</span></div>
+      <div class="plano-divider"></div>
+      <ul class="plano-features">
+        <li>Tudo do Pro, mais:</li>
+        <li>Personal trainer online</li>
+        <li>Análise de bioimpedância</li>
+        <li>Consultoria de suplementação</li>
+        <li>Workshops ao vivo mensais</li>
+        <li>Relatórios detalhados</li>
+      </ul>
+      <button class="btn-plano" onclick="window.location.href='cadastro.html'">Falar com consultor</button>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ DEPOIMENTOS ══ -->
+<section class="section-depoimentos" id="depoimentos">
+  <div class="dep-header reveal">
+    <p class="section-label">Resultados reais</p>
+    <h2 class="section-title">O que nossos <em>atletas</em> dizem</h2>
+  </div>
+  <div class="dep-ticker-wrap">
+    <div class="dep-ticker" id="depTicker">
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Perdi 12kg em 4 meses com o plano Pro. A personalização fez toda a diferença no meu resultado."</p><div class="dep-author"><div class="dep-avatar">RC</div><div class="dep-author-info"><b>Rafael Costa</b><span>Perdeu 12kg</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Finalmente entendi como treinar de forma inteligente. Ganhei 8kg de massa em 6 meses."</p><div class="dep-author"><div class="dep-avatar">AM</div><div class="dep-author-info"><b>Ana Martins</b><span>+8kg de massa</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"O acompanhamento semanal é incrível. Sinto que tenho um coach particular sempre disponível."</p><div class="dep-author"><div class="dep-avatar">FS</div><div class="dep-author-info"><b>Felipe Souza</b><span>Elite há 1 ano</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★☆</div><p class="dep-text">"Melhor investimento para minha saúde. O plano alimentar é prático e muito eficiente."</p><div class="dep-author"><div class="dep-avatar">JL</div><div class="dep-author-info"><b>Juliana Lima</b><span>Plano Pro</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Reduzi de 28% para 15% de gordura em 5 meses. Resultado absurdo com método sólido!"</p><div class="dep-author"><div class="dep-avatar">MO</div><div class="dep-author-info"><b>Marcos Oliveira</b><span>-13% gordura</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Conteúdo de suplementação mais completo que já vi. Sem achismo, só ciência aplicada."</p><div class="dep-author"><div class="dep-avatar">CF</div><div class="dep-author-info"><b>Carla Ferreira</b><span>Elite há 8 meses</span></div></div></div>
+      <!-- Duplicatas para ticker infinito -->
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Perdi 12kg em 4 meses com o plano Pro. A personalização fez toda a diferença no meu resultado."</p><div class="dep-author"><div class="dep-avatar">RC</div><div class="dep-author-info"><b>Rafael Costa</b><span>Perdeu 12kg</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Finalmente entendi como treinar de forma inteligente. Ganhei 8kg de massa em 6 meses."</p><div class="dep-author"><div class="dep-avatar">AM</div><div class="dep-author-info"><b>Ana Martins</b><span>+8kg de massa</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"O acompanhamento semanal é incrível. Sinto que tenho um coach particular sempre disponível."</p><div class="dep-author"><div class="dep-avatar">FS</div><div class="dep-author-info"><b>Felipe Souza</b><span>Elite há 1 ano</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★☆</div><p class="dep-text">"Melhor investimento para minha saúde. O plano alimentar é prático e muito eficiente."</p><div class="dep-author"><div class="dep-avatar">JL</div><div class="dep-author-info"><b>Juliana Lima</b><span>Plano Pro</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Reduzi de 28% para 15% de gordura em 5 meses. Resultado absurdo com método sólido!"</p><div class="dep-author"><div class="dep-avatar">MO</div><div class="dep-author-info"><b>Marcos Oliveira</b><span>-13% gordura</span></div></div></div>
+      <div class="dep-card"><div class="dep-stars">★★★★★</div><p class="dep-text">"Conteúdo de suplementação mais completo que já vi. Sem achismo, só ciência aplicada."</p><div class="dep-author"><div class="dep-avatar">CF</div><div class="dep-author-info"><b>Carla Ferreira</b><span>Elite há 8 meses</span></div></div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ TRANSFORMAÇÕES ══ -->
+<section class="section-transf" id="transformacoes">
+  <div class="reveal" style="margin-bottom:44px;">
+    <p class="section-label">Provas reais</p>
+    <h2 class="section-title">Transformações que <em>inspiram</em></h2>
+    <p class="section-sub">Resultados reais de membros do MuscleLab. Você pode ser o próximo.</p>
+  </div>
+  <div class="transf-grid stagger">
+    <div class="transf-card"><div class="transf-img"><div class="transf-placeholder">Antes → Depois</div></div><div class="transf-body"><h4>Rafael C. — Hipertrofia</h4><p>De 68kg para 80kg em 8 meses com o plano Elite.</p><span class="transf-stat">+12kg massa magra</span></div></div>
+    <div class="transf-card"><div class="transf-img"><div class="transf-placeholder">Antes → Depois</div></div><div class="transf-body"><h4>Ana M. — Definição</h4><p>Reduziu 10% de gordura corporal mantendo toda a massa muscular.</p><span class="transf-stat">-10% gordura</span></div></div>
+    <div class="transf-card"><div class="transf-img"><div class="transf-placeholder">Antes → Depois</div></div><div class="transf-body"><h4>Marcos O. — Recomposição</h4><p>Recomposição corporal completa em 5 meses de dedicação.</p><span class="transf-stat">Recomposição total</span></div></div>
+  </div>
+</section>
+ 
+<!-- ══ CONTATO ══ -->
+<section class="section-contato" id="contato">
+  <div class="reveal-left">
+    <p class="section-label">Fale conosco</p>
+    <h2 class="section-title">Entre em <em>contato</em></h2>
+    <p class="section-sub" style="margin-bottom:32px;">Tem dúvidas ou quer saber mais? Nossa equipe responde em até 24h.</p>
+    <div class="contato-info">
+      <div class="info-card"><div class="info-card-icon">📞</div><div><h4>Telefone</h4><p>+55 (11) 90000-0000</p></div></div>
+      <div class="info-card"><div class="info-card-icon">✉️</div><div><h4>E-mail</h4><p>contato@musclelab.com</p></div></div>
+      <div class="info-card"><div class="info-card-icon">📍</div><div><h4>Localização</h4><p>São Paulo, SP — Brasil</p></div></div>
+    </div>
+  </div>
+  <div class="contato-form-wrap reveal-right">
+    <h3 class="form-title">Envie sua mensagem</h3>
+    <div class="form-group"><label>Nome completo</label><input type="text" placeholder="Seu nome"/></div>
+    <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com"/></div>
+    <div class="form-group"><label>Mensagem</label><textarea placeholder="Como podemos ajudar?"></textarea></div>
+    <button class="btn-enviar">Enviar mensagem <i class="fas fa-paper-plane"></i></button>
+  </div>
+</section>
+ 
+<!-- ══ NEWSLETTER ══ -->
+<section class="section-newsletter">
+  <div class="newsletter-wrap reveal">
+    <h2 class="newsletter-title">Dicas exclusivas no<br/><em>seu e-mail</em></h2>
+    <p class="newsletter-sub">Receba treinos, receitas e conteúdos científicos. Grátis, sem spam.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Digite seu melhor e-mail…"/>
+      <button>Inscrever-se</button>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══ FOOTER ══ -->
 <footer>
-    <div class="footer-wrapper">
-        
-        <div class="container-inscrever">
-            <h3 class="inscrever-titulo">Receba Notícias e Dicas Fitness!</h3>
-            <div class="newsletter-form">
-                <input type="email" class="input-inscrever" placeholder="Digite seu melhor e-mail">
-                <button class="btn-inscrever">Inscrever-se</button>
-            </div>
-            <div class="inscrever-checkbox">
-                <input type="checkbox" id="checkbox-inscricao" class="checkbox-inscricao">
-                <label for="checkbox-inscricao">
-                    <span>Quero receber informações, notícias, eventos e dicas de treino.</span>
-                </label>
-            </div>
-        </div>
-        
-        <hr class="footer-separator">
-        
-        <div class="conteudo-principal">
-            
-            <div class="coluna-info">
-                <div class="logo-footer">
-                    <img src="imagem/logo.png" alt="Logo MuscleLab">
-                    <h3>Muscle<span>Lab</span></h3> 
-                </div>
-                <p class="descricao-curta">
-                    Sua plataforma de treinamento para máximo desempenho. Força, foco e resultados.
-                </p>
-            </div>
-
-            <div class="coluna-links">
-                <h3>Treinamento</h3>
-                <p><a href="#planos">Planos de Treino</a></p>
-                <p><a href="#calculadora">Calculadora de IMC</a></p>
-                <p><a href="#nutricao">Dicas de Nutrição</a></p>
-                <p><a href="#suplementos">Guia de Suplementos</a></p>
-            </div>
-
-            <div class="coluna-links">
-                <h3>Institucional</h3>
-                <p><a href="#sobre">Sobre Nós</a></p>
-                <p><a href="#contato">Fale Conosco</a></p>
-                <p><a href="#faq">FAQ</a></p>
-                <p><a href="#termos">Termos de Uso</a></p>
-            </div>
-
-            <div class="coluna-contato">
-                <h3>Contato</h3>
-                <p>+55 (11) 90000-0000</p>
-                <p>contato@musclelab.com</p>
-                
-                <div class="redes-sociais">
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fab fab fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fab fab fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-
-        </div>
-        
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name"><img src="imagem/logo.png" alt="MuscleLab"/>Muscle<span>Lab</span></div>
+      <p>Sua plataforma de treinamento para máximo desempenho. Força, foco e resultados reais.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
-    
-    <div class="container-copy">
-        <p> © Copyright 2025 MuscleLab. Todos os direitos reservados. </p>
-    </div>
+    <div class="footer-col"><h4>Treinamento</h4><ul><li><a href="#">Planos de Treino</a></li><li><a href="#">Calculadora de IMC</a></li><li><a href="#">Dicas de Nutrição</a></li><li><a href="#">Guia de Suplementos</a></li></ul></div>
+    <div class="footer-col"><h4>Institucional</h4><ul><li><a href="#">Sobre Nós</a></li><li><a href="#">Fale Conosco</a></li><li><a href="#">FAQ</a></li><li><a href="#">Termos de Uso</a></li><li><a href="#">Privacidade</a></li></ul></div>
+    <div class="footer-col"><h4>Contato</h4><ul><li><a href="tel:+5511900000000">+55 (11) 90000-0000</a></li><li><a href="mailto:contato@musclelab.com">contato@musclelab.com</a></li><li><a href="#">São Paulo, SP</a></li></ul></div>
+  </div>
+  <div class="footer-copy"><p>© 2025 MuscleLab. Todos os direitos reservados. Feito com 🔥 para quem não para.</p></div>
 </footer>
-    </div>
-  </body>
-</html>
+ 
 <script>
-  var contMenu = 0;
-  function menu() {
-    if (contMenu == 1) {
-      lista_menu.style.display = "flex";
-      contMenu = 0;
-    } else {
-      lista_menu.style.display = "none";
-      contMenu = 1;
-    }
+/* ── Cursor ── */
+const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
+(function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,.curiosidade-card,.plano-card,.feat-item,.dep-card,.info-card,.transf-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hovered'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));
+});
+ 
+/* ── Scroll progress + navbar ── */
+window.addEventListener('scroll',()=>{
+  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  document.getElementById('progress').style.width=pct+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+ 
+/* ── Reveal observer ── */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el=>obs.observe(el));
+ 
+/* ── Smooth anchors ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
+});
+ 
+/* ── Mobile menu ── */
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu'),o=document.getElementById('navOverlay'),b=document.getElementById('hamburger');
+  const open=m.classList.toggle('open');
+  o.classList.toggle('active',open);b.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('active');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMenu();});
+ 
+/* ── Carousel ── */
+const track=document.getElementById('carouselTrack');
+const dotsEl=document.getElementById('carouselDots');
+let cur=0;
+const TOTAL=5;
+ 
+function getVis(){return window.innerWidth<=600?1:window.innerWidth<=900?2:3;}
+ 
+function buildDots(){
+  dotsEl.innerHTML='';
+  const pages=Math.ceil(TOTAL/getVis());
+  for(let i=0;i<pages;i++){
+    const d=document.createElement('button');
+    d.className='carousel-dot'+(i===cur?' active':'');
+    d.onclick=()=>{cur=i;updateCarousel();};
+    dotsEl.appendChild(d);
   }
-
+}
+ 
+function updateCarousel(){
+  const card=track.querySelector('.curiosidade-card');
+  const gap=22;
+  const cardW=card.offsetWidth+gap;
+  track.style.transform=`translateX(-${cur*cardW*getVis()}px)`;
+  document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+}
+ 
+function moveCarousel(dir){
+  const pages=Math.ceil(TOTAL/getVis());
+  cur=(cur+dir+pages)%pages;updateCarousel();
+}
+ 
+buildDots();
+window.addEventListener('resize',()=>{buildDots();updateCarousel();});
+ 
+/* Swipe */
+let sx=0;
+track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)moveCarousel(dx<0?1:-1);},{passive:true});
+ 
+/* Auto-advance carousel */
+setInterval(()=>moveCarousel(1),5000);
 </script>
+</body>
+</html>
