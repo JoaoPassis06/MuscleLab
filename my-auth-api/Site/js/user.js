@@ -27,7 +27,7 @@ async function loadUserData(token) {
         const response = await fetch(`${API_BASE_URL}/profile`, {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${token}` // Envia o JWT
+                'Authorization': `Bearer ${token}` 
             }
         });
 
@@ -68,7 +68,7 @@ function iniciarQuiz() {
 
 function abrirIMC() {
     alert('Função IMC: Redirecionando para a calculadora de IMC...');
-    // window.location.href = 'imc.html';
+   
 }
 
 function verTreino() {
@@ -82,13 +82,13 @@ function verTreino() {
 // -----------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    const token = checkAuth(); // Verifica se está logado
+    const token = checkAuth(); 
 
     if (token) {
-        loadUserData(token); // Carrega os dados do usuário
+        loadUserData(token);
     }
 
-    // Configura o botão de logout
+
     if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
             handleLogout();

@@ -328,7 +328,6 @@ document.querySelectorAll('a,button,.curiosidade-card,.plano-card,.feat-item,.de
   el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));
 });
  
-/* ── Scroll progress + navbar ── */
 window.addEventListener('scroll',()=>{
   const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
   document.getElementById('progress').style.width=pct+'%';
@@ -338,8 +337,7 @@ window.addEventListener('scroll',()=>{
 /* ── Reveal observer ── */
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el=>obs.observe(el));
- 
-/* ── Smooth anchors ── */
+
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
 });

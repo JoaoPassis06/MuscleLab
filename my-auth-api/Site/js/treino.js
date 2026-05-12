@@ -8,10 +8,7 @@ const dataDisplay = document.getElementById('data-hoje');
 
 const API_TREINO_URL = 'http://localhost:3000/api/data/treino'; 
 
-/**
- * LISTA DE EXERCÍCIOS
- * Por enquanto, os exercícios aparecem aqui de forma fixa.
- */
+
 const treinoSimulado = [
     { name: "Agachamento Livre", sets: "4x10-12", isCompleted: false },
     { name: "Supino Reto com Halteres", sets: "3x8", isCompleted: false },
@@ -20,11 +17,6 @@ const treinoSimulado = [
     { name: "Abdominais na Máquina", sets: "4xFalha", isCompleted: false }
 ];
 
-/**
- * MARCAR EXERCÍCIO FEITO
- * Quando você clica no círculo ao lado do exercício, eu mudo o ícone
- * e risco o nome dele para mostrar que você já terminou essa parte.
- */
 function marcarItem(iconeElemento) {
     const itemLista = iconeElemento.closest('.item-exercicio');
     itemLista.classList.toggle('completed');
@@ -33,11 +25,7 @@ function marcarItem(iconeElemento) {
     iconeElemento.classList.toggle('fas');
 }
 
-/**
- * MONTAR TABELA DE TREINO
- * Este bloco cria a visualização do treino na tela, colocando cada 
- * exercício em uma linha com o nome, as séries e o botão de check.
- */
+
 function carregarExercicios(exercicios) {
     listaExercicios.innerHTML = ''; 
 
@@ -64,21 +52,13 @@ function carregarExercicios(exercicios) {
     });
 }
 
-/**
- * MOSTRAR DATA
- * Apenas para deixar o topo da página com a data atual formatada.
- */
 function definirData() {
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
     const date = new Date().toLocaleDateString('pt-BR', options);
     dataDisplay.textContent = date.charAt(0).toUpperCase() + date.slice(1);
 }
 
-/**
- * FINALIZAR E SALVAR TREINO
- * Quando você clica em finalizar, eu pego todos os exercícios que você marcou,
- * vejo como foi a intensidade (Leve, Mediano, Intenso) e mando pro banco de dados.
- */
+
 async function finalizarTreino() {
     const token = localStorage.getItem('userToken');
     const status_treino = statusSelect.value;
@@ -129,10 +109,7 @@ async function finalizarTreino() {
     }
 }
 
-/**
- * CONFIGURAÇÃO INICIAL
- * Assim que a página abre, eu coloco a data e monto a lista de exercícios.
- */
+
 finalizarBtn.onclick = finalizarTreino;
 
 document.addEventListener('DOMContentLoaded', () => {

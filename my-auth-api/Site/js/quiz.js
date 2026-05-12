@@ -53,11 +53,7 @@ const displayPerguntaAtual = document.getElementById('pergunta-atual');
 let currentQuestionIndex = 0;
 let userAnswers = new Array(quizData.length).fill(null);
 
-/**
- * CARREGAR PERGUNTA
- * Aqui eu limpo as opções anteriores e mostro a pergunta atual.
- * Se você já tiver respondido antes, eu deixo o botão marcado.
- */
+
 function loadQuestion(index) {
     if (index >= 0 && index < quizData.length) {
         currentQuestionIndex = index;
@@ -84,11 +80,6 @@ function loadQuestion(index) {
     }
 }
 
-/**
- * SELECIONAR OPÇÃO
- * Quando você clica em uma resposta, eu guardo a escolha
- * e libero o botão de "Próximo".
- */
 function selectOption(optionIndex, selectedButton) {
     userAnswers[currentQuestionIndex] = optionIndex;
     
@@ -120,10 +111,7 @@ function updateNavigationButtons() {
     }
 }
 
-/**
- * FINALIZAR QUIZ
- * Verifica se todas as perguntas foram respondidas e te leva para a página de treino.
- */
+
 function finishQuiz() {
     const totalAnswered = userAnswers.filter(answer => answer !== null).length;
 
@@ -136,18 +124,12 @@ function finishQuiz() {
     window.location.href = 'treino.html'; 
 }
 
-/**
- * CONFIGURAÇÃO DOS CLIQUES
- * Define o que acontece ao clicar nos botões de navegação.
- */
+
+
 botaoAnterior.onclick = () => loadQuestion(currentQuestionIndex - 1);
 botaoProximo.onclick = () => loadQuestion(currentQuestionIndex + 1);
 botaoFinalizar.onclick = finishQuiz;
 
-/**
- * INÍCIO
- * Assim que a página carrega, eu mostro a primeira pergunta.
- */
 document.addEventListener('DOMContentLoaded', () => {
     loadQuestion(0);
 });

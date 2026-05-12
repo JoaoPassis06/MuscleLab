@@ -2,13 +2,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const messageDisplay = document.getElementById('message');
-    const API_URL = 'http://localhost:3000/api/users/login'; // ENDPOINT da sua API
+    const API_URL = 'http://localhost:3000/api/users/login';
 
-    // Função para lidar com o envio do formulário
+
     loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Impede o envio padrão do formulário (que recarregaria a página)
+        e.preventDefault(); 
 
-        // Limpa mensagens de erro anteriores
+
         messageDisplay.textContent = '';
         messageDisplay.className = 'error-message';
 
@@ -29,19 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (response.ok) {
-                // 3. Sucesso: Guarda o JWT e redireciona
-                
-                // Armazena o token de acesso (IMPORTANTE para as rotas protegidas)
+
                 localStorage.setItem('userToken', data.token); 
                 
-                // Exibe mensagem de sucesso
+                
                 messageDisplay.textContent = 'Login bem-sucedido! Redirecionando...';
                 messageDisplay.className = 'success-message';
 
                 window.location.href = '/user.html';
                 
             } else {
-                // 4. Falha: Exibe a mensagem de erro da API
+
                 messageDisplay.textContent = data.message || 'Erro ao fazer login. Tente novamente.';
             }
 

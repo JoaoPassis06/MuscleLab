@@ -1,5 +1,5 @@
 
-// JavaScript completo para a tela de cadastro de etapa única (MuscleLab)
+
 
 // -----------------------------------------------------
 // REFERÊNCIAS AOS ELEMENTOS DOM
@@ -30,9 +30,7 @@ const barrasForca = [
 // FUNÇÕES DE UTILIDADE E MODAL
 // -----------------------------------------------------
 
-/**
- * Fecha o modal de erro. Chamado pelo botão "OK".
- */
+
 function fecharModal() {
     errorModal.classList.remove('show');
 }
@@ -62,7 +60,7 @@ function analisarForcaSenha(senha) {
     return score;
 }
 
-// Event Listener para atualizar a barra de força da senha em tempo real
+
 if (iptSenha) {
     iptSenha.addEventListener('input', () => {
         const score = analisarForcaSenha(iptSenha.value);
@@ -81,11 +79,11 @@ if (iptSenha) {
             for (let i = 0; i < maxBarras; i++) barrasForca[i].style.backgroundColor = corBarra;
         } else if (score >= 3) {
             forcaText = 'Média';
-            corBarra = '#ffc107'; // Amarelo
+            corBarra = '#ffc107'; 
             for (let i = 0; i < 2; i++) barrasForca[i].style.backgroundColor = corBarra;
         } else if (score >= 1) {
             forcaText = 'Fraca';
-            corBarra = '#f0ad4e'; // Laranja
+            corBarra = '#f0ad4e';
             barrasForca[0].style.backgroundColor = corBarra;
         }
         
@@ -137,7 +135,7 @@ async function finalizarCadastro(event) {
     }
 
     if (erroGeral !== '') {
-        // Exibe os erros no Modal e para o processo
+       
         exibirErro(modalMsgErros, `<ul>${erroGeral}</ul>`);
         return; 
     }
@@ -150,8 +148,7 @@ async function finalizarCadastro(event) {
     const email = iptEmail.value;
     const senha = iptSenha.value;
 
-    const API_URL = 'http://localhost:3000/api/users/register'; // endpoint
-
+    const API_URL = 'http://localhost:3000/api/users/register'; 
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -163,9 +160,8 @@ async function finalizarCadastro(event) {
         
         if (response.ok) {
             alert('Cadastro realizado com sucesso! Redirecionando para o login.');
-            window.location.href = 'login.html'; // Redireciona
+            window.location.href = 'login.html'; 
         } else {
-            // Erro vindo do Backend (ex: email duplicado)
             exibirErro(modalMsgErros, `<ul><li>${data.message || 'Erro no cadastro. Tente novamente.'}</li></ul>`);
         }
 
