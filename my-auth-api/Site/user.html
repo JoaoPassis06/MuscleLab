@@ -4,47 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MuscleLab - Dashboard</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <link rel="stylesheet" href="estilo/user.css">
 </head>
 <body>
-    
+
     <header id="cabecalho-principal">
         <div class="info-usuario">
             <img src="./imagem/default-avatar.png" alt="Foto do Usuário" id="foto-usuario" class="foto-usuario">
-            <h1 id="exibir-nome-usuario">Olá, Usuário MuscleLab!</h1>
+            <h1 id="exibir-nome-usuario">Olá, <span>Usuário MuscleLab!</span></h1>
         </div>
-        <button id="btn-sair" class="btn-sair">Sair <i class="fas fa-sign-out-alt"></i></button>
+        <button id="btn-sair" class="btn-sair">
+            <span>Sair</span>
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
     </header>
+
+    <section class="hero-badge">
+        <h2>Seu painel de <em>performance</em></h2>
+        <p>Escolha o que deseja fazer hoje e continue evoluindo.</p>
+        <div class="divisor"><span>— MuscleLab —</span></div>
+    </section>
 
     <main class="conteudo-painel">
 
-        <div class="cartao-recurso" data-recurso="quiz">
-            <i class="fas fa-question-circle icone-cartao"></i>
+        <div class="cartao-recurso" data-recurso="quiz" onclick="iniciarQuiz()">
+            <span class="tag-card">Personalização</span>
+            <i class="fas fa-sliders-h icone-cartao"></i>
             <h2 class="titulo-cartao">Montar Meu Treino</h2>
-            <p>Responda a um quiz rápido e personalize seu plano de exercícios.</p>
+            <p>Responda a um quiz rápido e receba um plano de exercícios personalizado ao seu objetivo.</p>
             <button class="btn-principal" onclick="iniciarQuiz()">INICIAR QUIZ</button>
         </div>
 
-        <div class="cartao-recurso" data-recurso="imc">
-            <i class="fas fa-calculator icone-cartao"></i>
+        <div class="cartao-recurso" data-recurso="imc" onclick="abrirIMC()">
+            <span class="tag-card">Saúde</span>
+            <i class="fas fa-weight icone-cartao"></i>
             <h2 class="titulo-cartao">Calcular Meu IMC</h2>
-            <p>Monitore seu Índice de Massa Corporal e acompanhe sua evolução.</p>
+            <p>Monitore seu Índice de Massa Corporal e acompanhe a evolução do seu corpo ao longo do tempo.</p>
             <button class="btn-principal" onclick="abrirIMC()">CALCULAR IMC</button>
         </div>
 
-        <div class="cartao-recurso" data-recurso="treino">
+        <div class="cartao-recurso" data-recurso="treino" onclick="verTreino()">
+            <span class="tag-card">Treino</span>
             <i class="fas fa-dumbbell icone-cartao"></i>
             <h2 class="titulo-cartao">Ver Meu Treino</h2>
-            <p>Acesse seu plano de treino semanal montado e faça o check-in dos exercícios.</p>
+            <p>Acesse seu plano semanal completo, faça o check-in dos exercícios e registre sua evolução.</p>
             <button class="btn-principal" onclick="verTreino()">VER DETALHES</button>
         </div>
-        
+
     </main>
 
     <script src="js/user.js"></script>
