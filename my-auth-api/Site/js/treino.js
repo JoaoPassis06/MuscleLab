@@ -116,3 +116,36 @@ document.addEventListener('DOMContentLoaded', () => {
     definirData();
     carregarExercicios(treinoSimulado);
 });
+
+    (function () {
+        const observer = new MutationObserver(atualizarProgresso);
+
+        function atualizarProgresso() {
+            const todos      = document.querySelectorAll('#lista-exercicios .item-exercicio');
+            const concluidos = document.querySelectorAll('#lista-exercicios .item-exercicio.completed');
+            const total      = todos.length;
+            const feitos     = concluidos.length;
+
+            const pct = total > 0 ? Math.round((feitos / total) * 100) : 0;
+
+            const fill  = document.getElementById('barra-fill');
+            const label = document.getElementById('label-progresso');
+            if (fill)  fill.style.width  = pct + '%';
+            if (label) label.textContent = feitos + ' / ' + total + ' exercícios';
+        }
+
+        const lista = document.getElementById('lista-exercicios');
+        if (lista) observer.observe(lista, { childList: true, subtree: true, attributes: true });
+
+        const listaObs = new MutationObserver((mutations) => {
+            mutations.forEach(m => {
+                m.addedNodes.forEach((node, i) => {
+                    if (node.classList && node.classList.contains('item-exercicio')) {
+                        node.style.animationDelay = (i * 60) + 'ms';
+                    }
+                });
+            });
+            atualizarProgresso();
+        });
+        if (lista) listaObs.observe(lista, { childList: true });
+    })();

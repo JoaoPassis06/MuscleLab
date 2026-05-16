@@ -91,11 +91,6 @@ function selectOption(optionIndex, selectedButton) {
     updateNavigationButtons();
 }
 
-/**
- * CONTROLE DOS BOTÕES
- * Aqui eu decido quando mostrar o botão "Anterior", "Próximo" ou "Finalizar".
- * Você só pode avançar se tiver selecionado uma resposta.
- */
 function updateNavigationButtons() {
     botaoAnterior.disabled = currentQuestionIndex === 0;
 
@@ -133,3 +128,18 @@ botaoFinalizar.onclick = finishQuiz;
 document.addEventListener('DOMContentLoaded', () => {
     loadQuestion(0);
 });
+
+    (function () {
+        const fill  = document.getElementById('barra-progresso-fill');
+        const span  = document.getElementById('pergunta-atual');
+        if (!fill || !span) return;
+
+        const obs = new MutationObserver(() => {
+            const atual = parseInt(span.textContent) || 1;
+            const fracEl = document.getElementById('frac-total');
+            const total  = fracEl ? parseInt(fracEl.textContent.replace(/\D/g,'')) || 10 : 10;
+            fill.style.width = Math.round((atual / total) * 100) + '%';
+        });
+
+        obs.observe(span, { childList: true, characterData: true, subtree: true });
+    })();
