@@ -1,237 +1,445 @@
 @charset "UTF-8";
 
-/* IMPORT DAS FONTES */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
 
-
-/* ---------------------------------
-   ANIMAÇÃO DE FUNDO
-   --------------------------------- */
-@keyframes aparecendo {
-    0% { background-color: #383737; }
-    50% { background-color: #4a4a4a; }
-    100% { background-color: #383737; }
+/* ─── TOKENS ──────────────────────────────────────────── */
+:root {
+    --orange:      #FF6B00;
+    --orange-lt:   #ff8c2a;
+    --orange-dim:  rgba(255,107,0,0.12);
+    --orange-glow: rgba(255,107,0,0.30);
+    --black:       #0A0A0A;
+    --black-mid:   #111111;
+    --card:        #161616;
+    --card-2:      #1c1c1c;
+    --border:      rgba(255,255,255,0.07);
+    --border-hl:   rgba(255,107,0,0.4);
+    --white:       #F5F5F0;
+    --white-dim:   rgba(245,245,240,0.55);
+    --white-muted: rgba(245,245,240,0.28);
+    --red:         #E53E3E;
+    --ease:        cubic-bezier(0.16,1,0.3,1);
+    --r:           10px;
 }
 
+/* ─── BASE ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; overflow-x: hidden; }
+
 body {
-    font-family: 'Inter', sans-serif;
-    background-image: url(../imagem/fundo_login.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: #383737;
-    
+    font-family: 'Barlow', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-
-    /* Animação de Fundo sutil */
-    animation: aparecendo 15s infinite alternate;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ---------------------------------
-   CONTAINER
-   --------------------------------- */
-.login-container {
-    
-    background: #1a1a1a;
-    padding: 40px; 
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); 
-    max-width: 350px;
-    width: 90%; 
-    text-align: center; 
-    
-    /* Animação de entrada */
-    opacity: 0;
-    transform: translateY(20px);
-    animation: subindo 1s ease-out 0.2s forwards;
+/* Grid diagonal de fundo */
+body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black, transparent);
+    pointer-events: none; z-index: 0;
 }
 
-@keyframes subindo {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Glow laranja radial de fundo */
+body::after {
+    content: '';
+    position: fixed;
+    top: -20%; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 500px;
+    background: radial-gradient(ellipse, rgba(255,107,0,0.1) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
 }
 
-/* ---------------------------------
-   ELEMENTOS DE CONTEÚDO
-   --------------------------------- */
-
-.logo{
-    height: 200px;
-    width: 200px;
-    margin: 0 auto 0 auto; 
-    display: block;
-    filter: drop-shadow(0 0 0 transparent);
-    transition: filter 0.3s ease-in-out; 
-}
-
-.logo:hover{
-    filter: drop-shadow(-5px -5px 5px #0056b3) 
-    drop-shadow(5px 5px 5px #a24f02);
-    cursor: pointer;
-}
-
-h2 {
-    color: #f9a929; 
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    margin-bottom: 25px;
-    margin-top: -45px;
-    letter-spacing:2px;
-    transition: color 0.3s;
-}
-
-h2:hover {
-    color: #ff8c00; 
-    cursor: default;
-}
-
-.input-grupo {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-label {
-    color: #ffffff;
-    display: block;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 8px;
-    font-weight: 400;
-    font-size: 0.9em;
-    
-}
-
-input[type="email"],
-input[type="password"] {
-    font-family: 'Inter', sans-serif;
-    width: 100%;
-    padding: 10px;
-    color: white;
-    background-color: #3c3c3c;
-    border: 1px solid #3c3c3c;
-    border-radius: 10px;
-    box-sizing: border-box;
-    box-shadow: 0 0 5px rgba(255, 140, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 8px rgba(255, 140, 0, 0.8);
-    margin-top: 10px;
-}
-
-input[type="email"]:hover,
-input[type="password"]:hover{
-    border: 1px solid #f9a929;
-    box-shadow: none;
-    border-radius: 0px;
-}
-
-input[type="email"]:focus,
-input[type="password"]:focus{
-    outline: none;
-    border-bottom:2px solid orange ;
-    border-radius: 0px;
-    background-color:  #2a2a2a;
-    box-shadow:none;    
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    
-}
-input[type="email"]:focus::placeholder,
-input[type="password"]:focus::placeholder{
-    color: transparent;
-}
-
-button[type="submit"] {
-    background-color: #f9a929; 
-    color: #1a1a1a;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-top: 20px;
-    transition: all 0.2s ease-in;
-    font-family: 'Oswald', sans-serif;
-}
-
-button[type="submit"]:hover {
-    background-color: #ff8c00;
-    transform: scale(1.02);
-    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.4);
-}
-
-p{
-    color: #ffffff;
-    text-align: center;
-    font-size: 0.9em;
-    margin-top: 20px;
-}
-
-p a {
-    color: #f9a929; 
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-p a:hover {
-    color: #ff8c00;
-    text-decoration: underline;
-}
-
-.error-message {
-    color: #e55353;
-    margin-top: 10px;
-}
-
-.input-com-icone {
-    position: relative; 
-    display: block; 
-}
-
-
-.icon-input {
-    position: absolute;
-    left: 15px; 
-    top: 70%; 
-    transform: translateY(-50%); 
-    color: #999; 
-    font-size: 1em; 
-    pointer-events: none; 
-    z-index: 5; 
-}
-
-
-.input-com-icone input {
-    padding-left: 40px; 
-    padding-right: 12px; 
-}
-
-
-.input-com-icone input:focus + .icon-input {
-    color: orange; 
-}
+/* ─── BOTÃO VOLTAR ────────────────────────────────────── */
 .btn-voltar {
-    position: absolute; 
-    top: 20px; 
-    left: 20px;
-    z-index: 10; 
-    color:orange; 
-    font-size: 2.5em; 
-    padding: 10px;
-    background: black; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
+    position: fixed;
+    top: 22px; left: 22px; z-index: 100;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white-dim);
+    font-size: 1.05rem;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: all .28s var(--ease);
 }
 
 .btn-voltar:hover {
-    color: white;
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
     transform: scale(1.1);
+    box-shadow: 0 6px 24px var(--orange-glow);
+}
+
+.btn-voltar i { font-size: 0.95rem; transition: transform .25s var(--ease); }
+.btn-voltar:hover i { transform: translateX(-2px); }
+
+/* ─── CONTAINER PRINCIPAL ─────────────────────────────── */
+.login-container {
+    display: flex;
+    width: 100%; max-width: 940px;
+    min-height: 540px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,107,0,0.06);
+    position: relative; z-index: 1;
+    margin: 20px;
+
+    opacity: 0;
+    transform: translateY(24px);
+    animation: subindo 0.7s var(--ease) 0.1s forwards;
+}
+
+@keyframes subindo {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── CAIXA 1 — FORMULÁRIO ────────────────────────────── */
+.caixa-login1 {
+    flex: 1;
+    padding: 52px 52px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Logo */
+.logo {
+    width: 95px; 
+    height: 95px;
+    display: block;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 0 0 transparent);
+    transition: filter .35s ease;
+    object-fit: contain;
+}
+
+.logo:hover {
+    filter: drop-shadow(-4px -4px 8px rgba(1, 7, 13, 0.5))
+            drop-shadow(4px 4px 8px rgba(162,79,2,0.5));
+    cursor: pointer;
+}
+
+/* Título */
+h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+h2 span { color: var(--orange); }
+
+.login-sub {
+    font-size: 0.84rem;
+    color: var(--white-muted);
+    margin-bottom: 36px;
+    line-height: 1.5;
+}
+
+/* ─── FORMULÁRIO ──────────────────────────────────────── */
+#loginForm { display: flex; flex-direction: column; gap: 0; }
+
+.input-grupo { margin-bottom: 20px; }
+
+label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white-muted);
+    margin-bottom: 8px;
+}
+
+/* wrapper relativo para o ícone */
+.input-com-icone {
+    position: relative;
+    display: block;
+}
+
+.input-com-icone input[type="email"],
+.input-com-icone input[type="password"] {
+    width: 100%;
+    padding: 13px 16px 13px 44px;
+    background: var(--card-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color .25s, box-shadow .25s, background .25s;
+    -webkit-autofill: unset;
+}
+
+.input-com-icone input[type="email"]:focus,
+.input-com-icone input[type="password"]:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px var(--orange-dim);
+    background: #1e1e1e;
+    outline: none;
+    border-radius: var(--r);
+    border-top: 1px solid var(--orange);
+    border-left: 1px solid var(--orange);
+    border-right: 1px solid var(--orange);
+    border-bottom: 1px solid var(--orange);
+}
+
+.input-com-icone input::placeholder { color: var(--white-muted); }
+
+.input-com-icone input:focus::placeholder { color: transparent; }
+
+.icon-input {
+    position: absolute;
+    left: 14px;
+    top: 50%; transform: translateY(-50%);
+    color: var(--white-muted);
+    font-size: 0.9rem;
+    pointer-events: none;
+    z-index: 5;
+    transition: color .25s;
+}
+
+.input-com-icone input:focus ~ .icon-input { color: var(--orange); }
+
+
+.toggle-senha {
+    position: absolute;
+    right: 13px; top: 50%; transform: translateY(-50%);
+    background: none; border: none;
+    color: var(--white-muted); font-size: 0.88rem;
+    cursor: pointer; padding: 0;
+    transition: color .2s;
+    z-index: 6;
+}
+.toggle-senha:hover { color: var(--orange); }
+
+/* ─── BOTÃO ENTRAR ────────────────────────────────────── */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--orange), var(--orange-lt));
+    color: #fff;
+    border: none;
+    border-radius: var(--r);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 8px;
+    box-shadow: 0 6px 22px var(--orange-glow);
+    transition: all .28s var(--ease);
+    position: relative; overflow: hidden;
+}
+
+button[type="submit"]::after {
+    content: '';
+    position: absolute; top: 0; left: -80%;
+    width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+    transition: left .4s ease;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px var(--orange-glow);
+}
+
+button[type="submit"]:hover::after { left: 140%; }
+button[type="submit"]:active { transform: scale(0.98); }
+
+/* ─── LINKS E TEXTOS ──────────────────────────────────── */
+p {
+    color: var(--white-dim);
+    font-size: 0.84rem;
+    margin-top: 16px;
+    text-align: center;
+}
+
+p a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+p a:hover { color: var(--orange-lt); text-decoration: underline; }
+
+.register-link { margin-top: 20px; }
+
+.error-message {
+    color: var(--red);
+    font-size: 0.82rem;
+    margin-top: 8px;
+    min-height: 18px;
+    text-align: center;
+}
+
+/* ─── CAIXA 2 — BANNER LATERAL ────────────────────────── */
+.caixa-login2 {
+    width: 42%;
+    background: linear-gradient(150deg, #1a1a1a 0%, #111 100%);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+}
+
+/* Glow laranja no banner */
+.caixa-login2::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,107,0,0.14) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Círculo decorativo */
+.caixa-login2::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    border: 1px solid rgba(255,107,0,0.12);
+}
+
+/* Conteúdo textual do banner */
+.banner-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--orange); background: var(--orange-dim);
+    border: 1px solid var(--border-hl);
+    padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 22px; position: relative; z-index: 1;
+}
+
+.banner-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900; text-transform: uppercase;
+    letter-spacing: 0.04em; line-height: 0.95;
+    text-align: center; position: relative; z-index: 1;
+    margin-bottom: 16px;
+}
+
+.banner-title .stroke {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent; display: block;
+}
+.banner-title .solid { color: var(--orange); display: block; }
+
+.banner-desc {
+    font-size: 0.84rem; color: var(--white-muted);
+    text-align: center; line-height: 1.7;
+    max-width: 220px; position: relative; z-index: 1;
+    margin-bottom: 28px;
+}
+
+/* Pills de benefícios */
+.banner-pills {
+    display: flex; flex-direction: column;
+    gap: 10px; width: 100%; max-width: 220px;
+    position: relative; z-index: 1;
+}
+
+.pill {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 0.8rem; color: var(--white-dim);
+    transition: border-color .25s, background .25s;
+}
+
+.pill:hover { border-color: var(--border-hl); background: var(--orange-dim); }
+
+.pill i { color: var(--orange); font-size: 0.85rem; width: 14px; text-align: center; }
+
+/* ─── DIVIDER com OR ──────────────────────────────────── */
+.divider {
+    display: flex; align-items: center; gap: 10px;
+    margin: 18px 0 14px;
+}
+.divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.divider span {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--white-muted);
+}
+
+/* Botão Google (caso queira adicionar futuramente) */
+.btn-google {
+    width: 100%; padding: 11px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    color: var(--white-dim);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; display: flex;
+    align-items: center; justify-content: center; gap: 10px;
+    transition: all .25s var(--ease);
+}
+.btn-google:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: var(--white); background: rgba(255,255,255,0.04);
+}
+
+/* ─── ANIMAÇÕES ───────────────────────────────────────── */
+@keyframes aparecendo {
+    0%, 100% { background-color: transparent; }
+}
+
+/* ─── RESPONSIVO ──────────────────────────────────────── */
+@media (max-width: 780px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 480px;
+        min-height: unset;
+        margin: 16px;
+        border-radius: 16px;
+    }
+    .caixa-login2 { display: none; }
+    .caixa-login1 { padding: 44px 32px 36px; }
+}
+
+@media (max-width: 480px) {
+    .caixa-login1 { padding: 36px 22px 30px; }
+    h2 { font-size: 1.7rem; }
+    .btn-voltar { top: 14px; left: 14px; width: 40px; height: 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }

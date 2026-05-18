@@ -2,49 +2,113 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MuscleLab - Login</title>
-    <link rel="stylesheet" href="estilo/login.css"> 
-    <link rel="stylesheet" href="media_query/loginMedia.css">
-
+    <link rel="stylesheet" href="estilo/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <a href="index.html" class="btn-voltar"><i class="fas fa-circle-arrow-left"></i></a>
+    <!-- Botão voltar redondo -->
+    <a href="index.html" class="btn-voltar" title="Voltar para Home">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
     <div class="login-container">
+
+        <!-- ── FORMULÁRIO ── -->
         <div class="caixa-login1">
-            <a href="index.html"><img src="imagem/logo.png" alt="" class="logo" /></a>
-            <h2>Login MuscleLab</h2>
-            
+
+            <a href="index.html">
+                <img src="imagem/logo.png" alt="MuscleLab" class="logo"/>
+            </a>
+
+            <h2>Bem-vindo de <span>volta</span></h2>
+            <p class="login-sub">Acesse sua conta e continue sua jornada.</p>
+
             <form id="loginForm">
-                
+
                 <div class="input-grupo">
-                    <label for="email" class="input-com-icone"> 
-                        E-mail:
-                        <input type="email" id="email" name="email" placeholder="musclelab@gmail.com">
-                        <i class="fas fa-user icon-input"></i> 
-                    </label>
+                    <label for="email">E-mail</label>
+                    <div class="input-com-icone">
+                        <input type="email" id="email" name="email" placeholder="musclelab@gmail.com" autocomplete="email"/>
+                        <i class="fas fa-user icon-input"></i>
+                    </div>
                 </div>
-            
+
                 <div class="input-grupo">
-                    <label for="senha" class="input-com-icone">
-                        Senha:
-                        <input type="password" id="senha" name="senha" placeholder="******">
+                    <label for="senha">Senha</label>
+                    <div class="input-com-icone">
+                        
+                        <input type="password" id="senha" name="senha" placeholder="Sua senha"/>
                         <i class="fas fa-lock icon-input"></i>
-                    </label>
+                        <button type="button" class="toggle-senha" id="toggleSenha" tabindex="-1">
+                            <i class="fas fa-eye" id="olhoIcon"></i>
+                        </button>
+                    </div>
                 </div>
-            
-                <button type="submit" id="loginButton">Entrar</button>
-                
+
+                <button type="submit" id="loginButton">
+                    Entrar na plataforma
+                </button>
+
                 <p id="message" class="error-message"></p>
+
             </form>
-            <p class="register-link">Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+
+            <p class="register-link">Não tem conta? <a href="cadastro.html">Cadastre-se grátis</a></p>
+
         </div>
+
+        <!-- ── BANNER LATERAL ── -->
         <div class="caixa-login2">
+            <span class="banner-tag">
+                <i class="fas fa-dumbbell"></i>
+                MuscleLab
+            </span>
+            <h3 class="banner-title">
+                <span class="stroke">Treine</span>
+                <span class="solid">Mais Forte</span>
+            </h3>
+            <p class="banner-desc">
+                Sua plataforma de alta performance para quem não para.
+            </p>
+            <div class="banner-pills">
+                <div class="pill">
+                    <i class="fas fa-bolt"></i>
+                    Treinos personalizados
+                </div>
+                <div class="pill">
+                    <i class="fas fa-chart-line"></i>
+                    Acompanhe sua evolução
+                </div>
+                <div class="pill">
+                    <i class="fas fa-calculator"></i>
+                    Calculadora de IMC
+                </div>
+                <div class="pill">
+                    <i class="fas fa-fire"></i>
+                    Intensidade máxima
+                </div>
+            </div>
         </div>
+
     </div>
 
-    <script src="js/login.js"></script> 
+    <script>
+    (function () {
+        const btn   = document.getElementById('toggleSenha');
+        const input = document.getElementById('senha');
+        const icon  = document.getElementById('olhoIcon');
+        if (!btn || !input) return;
+        btn.addEventListener('click', () => {
+            const visible = input.type === 'text';
+            input.type = visible ? 'password' : 'text';
+            icon.className = visible ? 'fas fa-eye' : 'fas fa-eye-slash';
+        });
+    });
+    </script>
+
+    <script src="js/login.js"></script>
 </body>
 </html>
